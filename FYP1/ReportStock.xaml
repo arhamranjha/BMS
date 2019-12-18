@@ -1,0 +1,216 @@
+﻿<Page x:Class="FYP1.ReportStock"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:FYP1"
+      xmlns:chart="clr-namespace:De.TorstenMandelkow.MetroChart;assembly=De.TorstenMandelkow.MetroChart" 
+      mc:Ignorable="d" 
+      xmlns:local2="clr-namespace:FYP1.Converter"      
+      xmlns:local1="clr-namespace:FYP1.Models"
+      xmlns:scm="clr-namespace:System.ComponentModel;assembly=WindowsBase"
+      xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
+      d:DesignHeight="800" d:DesignWidth="1000"
+      Loaded="Page_Loaded" Title="ReportStock">
+    <Page.Resources>
+        <Style x:Key="MinimalChartStyle" TargetType="chart:ChartBase">
+         
+            <Setter Property="Height" Value="500"/>
+        </Style>
+        <local1:ProductsModel x:Key="pro" />
+        <local2:ProductQuantityConverter x:Key="ProductQuantityConverter" />
+        <CollectionViewSource  x:Key="cvs" Source="{Binding Path=ProductsCollection,Source={StaticResource pro}}">
+            <CollectionViewSource.SortDescriptions>
+                <scm:SortDescription PropertyName="ProductName"/>
+            </CollectionViewSource.SortDescriptions>
+        </CollectionViewSource>
+        <Thickness x:Key="ControlMargin">0 10 0 10</Thickness>
+        <local2:GridVisablityConverter x:Key="GridVisablityConverter"/>
+        <local2:GridVisablityConverter1 x:Key="GridVisablityConverter1"/>
+        <Style x:Key="MenuLevel2" BasedOn="{StaticResource MetroTabItem}" TargetType="{x:Type TabItem}">
+            <Setter Property="Controls:ControlsHelper.HeaderFontSize" Value="34"></Setter>
+        </Style>
+    </Page.Resources>
+
+    <Grid x:Name="gridSource" DataContext="{Binding Source={StaticResource cvs}}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="18*"/>           
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="4*"/>
+            <ColumnDefinition Width="60*"/>
+        </Grid.ColumnDefinitions>
+        <Button  Width="60"
+                        Height="60" x:Name="backButton"
+                        Style="{DynamicResource MetroCircleButtonStyle}" 
+Foreground="{DynamicResource  AccentColorBrush}"
+                 TouchUp="backButton_TouchUp">
+            <Rectangle Width="30"
+                               Height="30"
+                               Fill="{Binding Path=Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}">
+                <Rectangle.OpacityMask>
+                    <VisualBrush Stretch="Fill" Visual="{DynamicResource appbar_navigate_previous}" />
+                </Rectangle.OpacityMask>
+            </Rectangle>
+        </Button>
+        <Button  Width="60" Grid.Row="1" VerticalAlignment="Bottom"
+                        Height="60" x:Name="printButton"
+                        Style="{DynamicResource MetroCircleButtonStyle}" 
+Foreground="{DynamicResource  AccentColorBrush}"
+                 TouchUp="printButton_TouchUp">
+            <Rectangle Width="30"
+                               Height="30"
+                               Fill="{Binding Path=Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}">
+                <Rectangle.OpacityMask>
+                    <VisualBrush Stretch="Fill" Visual="{DynamicResource appbar_printer}" />
+                </Rectangle.OpacityMask>
+            </Rectangle>
+        </Button>
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Grid.ColumnSpan="1" Grid.Column="3" HorizontalAlignment="Right" Visibility="{Binding  ElementName=tab,Path=SelectedIndex,Converter={StaticResource GridVisablityConverter}}">
+            <Controls:ToggleSwitch  Margin="0,0,20,0" VerticalAlignment="Center"
+                                   Header="Show active" HorizontalAlignment="Left"
+                                   IsChecked="False" IsCheckedChanged="ToggleSwitch_IsCheckedChanged"
+                                   Style="{DynamicResource CustomMetroToggleSwitch}" FontWeight="Thin" >
+                <Controls:ToggleSwitch.HeaderTemplate>
+                    <DataTemplate>
+                        <TextBlock Foreground="{StaticResource AccentColorBrush2}" Text="Show Actives" TextAlignment="Center" FontWeight="Light"/>
+                    </DataTemplate>
+                </Controls:ToggleSwitch.HeaderTemplate>
+            </Controls:ToggleSwitch>
+
+            <TextBox x:Name="search" FontSize="24" FontWeight="Light" Margin="10" 
+                 BorderThickness="0,0,0,3" BorderBrush="{StaticResource AccentColorBrush}"
+                         Controls:TextBoxHelper.ClearTextButton="True" Width="300"  VerticalAlignment="Center"
+                         Controls:TextBoxHelper.UseFloatingWatermark="True" HorizontalAlignment="Right"
+                         Controls:TextBoxHelper.Watermark="Search Product..." 
+                  KeyUp="SearchBox_KeyUp"  >
+                <TextBox.Style>
+                    <Style BasedOn="{StaticResource SearchMetroTextBox}" TargetType="{x:Type TextBox}">
+                        <Style.Triggers>
+                            <Trigger Property="Controls:TextBoxHelper.HasText" Value="True">
+                                <Setter Property="Controls:TextBoxHelper.ButtonContent" Value="r" />
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBox.Style>
+            </TextBox>
+            
+
+        </StackPanel>
+        <TabControl Margin="10" x:Name="tab"  ScrollViewer.PanningMode="Both" Grid.Column="1" Grid.ColumnSpan="3" 
+                     Foreground="{DynamicResource AccentColorBrush}" FontSize="26" Grid.Row="0" Grid.RowSpan="2"
+                       HorizontalAlignment="Left" VerticalAlignment="Top" SelectionChanged="tab_SelectionChanged"
+                      BorderThickness="0" 
+                        Controls:TabControlHelper.IsUnderlined="True"   >
+            <TabItem Header="Item Stock" Style="{StaticResource MenuLevel2}"/>
+            <TabItem Header="Item Graph" Style="{StaticResource MenuLevel2}"/>
+        </TabControl>
+        <Grid Grid.Column="1" Grid.Row="1" Grid.RowSpan="3" Grid.ColumnSpan="3" Name="report" Visibility="{Binding  ElementName=tab,Path=SelectedIndex,Converter={StaticResource GridVisablityConverter}}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="9*"/>
+                <RowDefinition Height="9*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="60*"/>
+                <ColumnDefinition Width="50*"/>
+            </Grid.ColumnDefinitions>
+
+            <GroupBox Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" Grid.ColumnSpan="2" Controls:ControlsHelper.ContentCharacterCasing="Normal" Controls:ControlsHelper.HeaderFontSize="16" Margin="10" BorderThickness="2"  FontSize="24">
+                <GroupBox.Header>
+                    <Grid >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="5*" />
+                            <ColumnDefinition Width="10*"/>
+                            <ColumnDefinition Width="10*"/>
+                            <ColumnDefinition Width="7*"/>
+                            <ColumnDefinition Width="10*"/>
+                            <ColumnDefinition Width="7*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Margin="15" Text="Product ID" Grid.Column="0" Foreground="White" HorizontalAlignment="Left" FontSize="22" VerticalAlignment="Center" ScrollViewer.VerticalScrollBarVisibility="Disabled" FontWeight="Light" TextWrapping="Wrap"/>
+                        <TextBlock Margin="15" Text="Product Name" Grid.Column="1" Foreground="White" HorizontalAlignment="Left" FontSize="22" VerticalAlignment="Center" ScrollViewer.VerticalScrollBarVisibility="Disabled" FontWeight="Light" TextWrapping="Wrap"/>
+                        <TextBlock Margin="15" Text="Catagory" Grid.Column="2" Foreground="White" HorizontalAlignment="Left" FontSize="22" VerticalAlignment="Center" ScrollViewer.VerticalScrollBarVisibility="Disabled" FontWeight="Light" TextWrapping="Wrap"/>
+                        <TextBlock Margin="15" Text="Status" Grid.Column="3" Foreground="White" HorizontalAlignment="Left" FontSize="22" VerticalAlignment="Center" ScrollViewer.VerticalScrollBarVisibility="Disabled" FontWeight="Light" TextWrapping="Wrap"/>
+                        <TextBlock Margin="15" Text="Buying Price" Grid.Column="4" Foreground="White" HorizontalAlignment="Left" FontSize="22" VerticalAlignment="Center" ScrollViewer.VerticalScrollBarVisibility="Disabled" FontWeight="Light" TextWrapping="Wrap"/>
+                        <TextBlock Margin="15" Text="Quantity Remaining" Grid.Column="5" Foreground="White" HorizontalAlignment="Left" FontSize="22" VerticalAlignment="Center" ScrollViewer.VerticalScrollBarVisibility="Disabled" FontWeight="Light" TextWrapping="Wrap"/>
+                    </Grid>
+                </GroupBox.Header>
+                <ListBox Name="productList" SelectedIndex="0" BorderThickness="0" ItemContainerStyle="{StaticResource listi}" 
+                     ScrollViewer.PanningMode="Both" ScrollViewer.VerticalScrollBarVisibility="Hidden"  
+                     ItemsSource="{Binding ElementName=gridSource,Path=DataContext}">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Grid >
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="5*" />
+                                    <ColumnDefinition Width="10*"/>
+                                    <ColumnDefinition Width="10*"/>
+                                    <ColumnDefinition Width="7*"/>
+                                    <ColumnDefinition Width="10*"/>
+                                    <ColumnDefinition Width="7*"/>
+                                </Grid.ColumnDefinitions>
+                                <Border Grid.Column="0" BorderBrush="{StaticResource AccentColorBrush2}" BorderThickness="0,0,0,2" >
+                                    <TextBlock Margin="15"  Text="{Binding Productid}" Foreground="{StaticResource AccentColorBrush}" HorizontalAlignment="Left" FontSize="20" VerticalAlignment="Center" ScrollViewer.VerticalScrollBarVisibility="Disabled" FontWeight="Light" />
+                                </Border>
+                                <Border Grid.Column="1"  BorderBrush="{StaticResource AccentColorBrush2}" BorderThickness="0,0,0,2">
+                                    <TextBlock Margin="15"  Text="{Binding ProductName}" Foreground="{StaticResource AccentColorBrush}"  TextAlignment="Left" HorizontalAlignment="Left" FontSize="20" VerticalAlignment="Center" ScrollViewer.VerticalScrollBarVisibility="Disabled"  FontWeight="Light" TextWrapping="Wrap"/>
+                                </Border>
+                                <Border Grid.Column="2"  BorderBrush="{StaticResource AccentColorBrush2}" BorderThickness="0,0,0,2" >
+                                    <TextBlock Margin="15"  Text="{Binding ProductCatagoryDesc}" Foreground="{StaticResource AccentColorBrush}" HorizontalAlignment="Left" FontSize="20" VerticalAlignment="Center" ScrollViewer.VerticalScrollBarVisibility="Disabled" FontWeight="Light" TextWrapping="Wrap"/>
+                                </Border>
+                                <Border Grid.Column="3"  BorderBrush="{StaticResource AccentColorBrush2}" BorderThickness="0,0,0,2" >
+                                    <TextBlock Margin="15"  Text="{Binding ProductStatusDesc}" Foreground="{StaticResource AccentColorBrush}" HorizontalAlignment="Left" FontSize="20" VerticalAlignment="Center" ScrollViewer.VerticalScrollBarVisibility="Disabled" FontWeight="Light" />
+                                </Border>
+                                <Border Grid.Column="4"  BorderBrush="{StaticResource AccentColorBrush2}" BorderThickness="0,0,0,2" >
+                                    <TextBlock Margin="15"  Text="{Binding ProductBuyingPrice,StringFormat={}{0:c}}" Foreground="{StaticResource AccentColorBrush}" HorizontalAlignment="Left" FontSize="20" VerticalAlignment="Center" ScrollViewer.VerticalScrollBarVisibility="Disabled" FontWeight="Light" />
+                                </Border>
+                                <Border Grid.Column="5"  BorderBrush="{StaticResource AccentColorBrush2}" BorderThickness="0,0,0,2" >
+                                    <TextBlock Margin="15"  Text="{Binding ProductQuantity}" Foreground="{Binding ProductQuantity,Converter={StaticResource ProductQuantityConverter}}" HorizontalAlignment="Center" FontSize="22" VerticalAlignment="Center" ScrollViewer.VerticalScrollBarVisibility="Disabled" FontWeight="Normal" />
+                                </Border>
+                            </Grid>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </GroupBox>
+
+           
+        </Grid>
+        <Grid Grid.Column="1" Grid.Row="1" Grid.RowSpan="3" Grid.ColumnSpan="3" Name="graph"  Visibility="{Binding  ElementName=tab,Path=SelectedIndex,Converter={StaticResource GridVisablityConverter1}}">
+            
+           
+            <GroupBox  Height="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}, Path=ActualHeight}" Grid.ColumnSpan="2" Controls:ControlsHelper.ContentCharacterCasing="Normal" Controls:ControlsHelper.HeaderFontSize="16" Margin="10" BorderThickness="2"  FontSize="24">
+                    <GroupBox.Header>
+                        <Grid >
+                            <TextBlock Margin="15" Text="Product's Stock Column Chart" Grid.Column="0" Foreground="White" HorizontalAlignment="Left" FontSize="24" VerticalAlignment="Center" ScrollViewer.VerticalScrollBarVisibility="Disabled" FontWeight="Light" TextWrapping="Wrap"/>
+                        </Grid>
+                    </GroupBox.Header>
+                 
+                    <ScrollViewer VerticalAlignment="Bottom" Grid.Column="0" Grid.ColumnSpan="3" PanningMode="Both"  HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden">
+                    <chart:ClusteredColumnChart  Style="{StaticResource MinimalChartStyle}"
+                    ChartLegendVisibility="Collapsed" ChartTitleVisibility="Collapsed"  
+        ChartTitle="Product Stock" FontSize="18" Foreground="{StaticResource AccentColorBrush}"
+        ChartSubTitle="Chart with fixed width and height" VerticalAlignment="Stretch"
+        SelectedItem="{Binding Path=SelectedItem, Mode=TwoWay}" IsRowColumnSwitched="True">
+                                <chart:ClusteredColumnChart.Series >
+                                    <chart:ChartSeries Name="chart" 
+                SeriesTitle=" " 
+                DisplayMember="ProductName"
+                ValueMember="ProductQuantity" />
+                                </chart:ClusteredColumnChart.Series>
+                            </chart:ClusteredColumnChart>
+                        </ScrollViewer>
+
+                  
+                </GroupBox>
+
+
+
+        </Grid>
+        <Controls:ProgressRing VerticalAlignment="Center" HorizontalAlignment="Center" Visibility="Hidden" x:Name="progressbar"
+                                       Width="50" Foreground="{StaticResource AccentColorBrush2}"
+                                       Height="50"  Grid.Column="0" Grid.ColumnSpan="3"  Grid.Row="0" Grid.RowSpan="3" />
+
+
+
+    </Grid>
+</Page>

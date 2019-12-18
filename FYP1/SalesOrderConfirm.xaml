@@ -1,0 +1,288 @@
+﻿<Page x:Class="FYP1.ConfirmSalesOrder"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:FYP1"
+      mc:Ignorable="d" 
+      xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
+      d:DesignHeight="600" d:DesignWidth="900"
+      Title="ConfirmSalesOrder" Loaded="Page_Loaded">
+
+
+    <Grid x:Name="gridSource">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="17*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10*"/>
+            <ColumnDefinition Width="80*"/>
+            <ColumnDefinition Width="20*"/>
+        </Grid.ColumnDefinitions>
+
+
+        <StackPanel Orientation="Horizontal" Grid.Column="0" Margin="10,0,0,0">
+            <Button  Width="60"
+                        Height="60" x:Name="backButton"
+                        Style="{DynamicResource MetroCircleButtonStyle}" Foreground="{DynamicResource  AccentColorBrush}" TouchUp="backButton_TouchUp">
+                <Rectangle Width="30"
+                               Height="30"
+                               Fill="{Binding Path=Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}">
+                    <Rectangle.OpacityMask>
+                        <VisualBrush Stretch="Fill" Visual="{DynamicResource appbar_chevron_left}" />
+                    </Rectangle.OpacityMask>
+                </Rectangle>
+            </Button>
+        </StackPanel>
+        <ListBox x:Name="listBoxwithitems"  HorizontalContentAlignment="Stretch"  Grid.Column="1" Grid.Row="1" Margin="0,0,0,90"
+                 ScrollViewer.PanningMode="Both" ScrollViewer.PanningDeceleration="500" ScrollViewer.PanningRatio="3"
+                 ScrollViewer.HorizontalScrollBarVisibility="Disabled" 
+                 ScrollViewer.VerticalScrollBarVisibility="Hidden" SelectionChanged="listBoxwithoptions_SelectionChanged"                 
+                 Style="{StaticResource MetroListBox}"
+                 ScrollViewer.CanContentScroll="True"
+                 HorizontalAlignment="Left"
+                 ItemContainerStyle="{StaticResource listi1}"
+                 VerticalAlignment="Top" BorderBrush="{DynamicResource AccentColorBrush3}"
+                 SelectionMode="Single"
+                 ItemsSource="{Binding ProductCollection}" >
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Border BorderBrush="{StaticResource AccentColorBrush}" BorderThickness="0 0 0 4">
+                        <Grid   HorizontalAlignment="Left" 
+                               VerticalAlignment="Top" Grid.Column="1" Grid.Row="1" >
+                            <Grid.Width>
+                                <Binding Path="ActualWidth" 
+                           RelativeSource="{RelativeSource Mode=FindAncestor, AncestorType={x:Type ScrollContentPresenter}}" />
+                            </Grid.Width>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="12*"/>
+                                <RowDefinition Height="7*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <StackPanel HorizontalAlignment="Left" Grid.Column="0" Grid.Row="0" VerticalAlignment="Top" Orientation="Vertical" Background="Transparent">
+                                <TextBlock Text="{Binding ProductName}"  Foreground="{StaticResource AccentColorBrush}" FontSize="22"/>
+                                <TextBlock Text="{Binding ProductDesc}" FontWeight="Light" FontSize="14"/>
+                                <TextBlock Text="{Binding ProductPrice,StringFormat=Price: {0:f1} Rs}" FontWeight="Light" FontSize="18"/>
+                                <TextBlock  FontWeight="Light" FontSize="18"/>
+                                <Controls:NumericUpDown x:Name="val" TextAlignment="Left" Width="100"  BorderThickness="0"  Margin="{StaticResource ControlMargin}" FontSize="20"
+                                        Controls:TextBoxHelper.Watermark="Quantity" Tag="{Binding Productid}"
+                                                Speedup="True" Value="{Binding ProductTotalQuantity,StringFormat=Quantity: {0:n},UpdateSourceTrigger=PropertyChanged,Mode=TwoWay,NotifyOnSourceUpdated=True,NotifyOnTargetUpdated=True}" ValueChanged="NumericUpDown_ValueChanged_1" HasDecimals="False" HorizontalAlignment="Left" VerticalAlignment="Center" />
+
+                                <Button  Width="40" HorizontalAlignment="Left" VerticalAlignment="Bottom" Tag="{Binding Productid}"
+                        Height="40" x:Name="remove"
+                        Style="{DynamicResource MetroCircleButtonStyle}" Foreground="{DynamicResource AccentColorBrush3}" TouchDown="remove_TouchDown"  >
+                                    <Rectangle Width="15"
+                               Height="20"
+                               Fill="{Binding Path=Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}">
+                                        <Rectangle.OpacityMask>
+                                            <VisualBrush Stretch="Fill" Visual="{DynamicResource appbar_delete}" />
+                                        </Rectangle.OpacityMask>
+                                    </Rectangle>
+                                </Button>
+
+                            </StackPanel>
+                            <ListBox ItemContainerStyle="{StaticResource listi1}" Grid.Column="1" Grid.Row="1" VerticalAlignment="Bottom" x:Name="listboxwithoptions"
+                                 ScrollViewer.PanningMode="Both" HorizontalContentAlignment="Stretch"    Style="{StaticResource MetroListBox}"              
+                                 ScrollViewer.HorizontalScrollBarVisibility="Hidden"  ScrollViewer.VerticalScrollBarVisibility="Hidden" 
+                                 HorizontalAlignment="Right" SelectionMode="Single"
+                                 Focusable="False" ItemsSource="{Binding ProductOptionList}"                                 
+                                 ScrollViewer.CanContentScroll="True" >
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <WrapPanel   Margin="{StaticResource ControlMargin}"  HorizontalAlignment="Right" VerticalAlignment="Top" >
+                                            <StackPanel>
+                                                <StackPanel Orientation="Horizontal">
+                                                    <Button  Width="40" Tag="{Binding ProductStatus}"
+                                                            Height="40" x:Name="add" Uid="{Binding Productid}"
+                                                            Style="{DynamicResource MetroCircleButtonStyle}" Foreground="{DynamicResource AccentColorBrush3}" TouchDown="add_TouchDown_1">
+                                                        <Rectangle Width="20"
+                                                                   Height="20"
+                                                 Fill="{Binding Path=Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}">
+                                                            <Rectangle.OpacityMask>
+                                                                <VisualBrush Stretch="Fill" Visual="{DynamicResource appbar_add}" />
+                                                            </Rectangle.OpacityMask>
+                                                        </Rectangle>
+                                                    </Button>
+
+                                                    <TextBox IsReadOnly="True" Margin="5,0,5,0" VerticalAlignment="Center" BorderThickness="0" Text="{Binding ProductTotalQuantity,UpdateSourceTrigger=PropertyChanged,NotifyOnSourceUpdated=True,NotifyOnTargetUpdated=True,ValidatesOnDataErrors=True,NotifyOnValidationError=True,ValidatesOnNotifyDataErrors=True}" Validation.Error="TextBox_Error"
+                                                           FontSize="14" FontWeight="Light"></TextBox>
+                                                    <Button  Width="40"                                                          
+                                                    Height="40" x:Name="minus" Tag="{Binding ProductStatus}"
+                                                         Uid="{Binding Productid}"
+                                                       Style="{DynamicResource MetroCircleButtonStyle}" Foreground="{DynamicResource AccentColorBrush3}" TouchDown="minus_TouchDown">
+                                                        <Rectangle Width="15"
+                                                       Height="20"
+                                                       Fill="{Binding Path=Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}">
+                                                            <Rectangle.OpacityMask>
+                                                                <VisualBrush Stretch="Fill" Visual="{DynamicResource appbar_delete}" />
+                                                            </Rectangle.OpacityMask>
+                                                        </Rectangle>
+                                                    </Button>
+
+                                                </StackPanel>
+                                                <TextBlock Text="{Binding ProductPrice,StringFormat=Price: {0:c}}" FontWeight="ExtraLight" FontSize="9.333" TextAlignment="Center"/>
+                                                <TextBlock Text="{Binding ProductName}" FontWeight="Light"  FontSize="12" Foreground="{DynamicResource AccentColorBrush}" TextAlignment="Center"/>
+                                                <TextBlock Text="{Binding ProductDesc}" FontWeight="Light"  FontSize="12" Foreground="{DynamicResource AccentColorBrush}" TextAlignment="Center"/>
+                                            </StackPanel>
+                                        </WrapPanel>
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+                                <ListBox.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <WrapPanel Orientation="Horizontal" 
+                           Height="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}, Path=ActualHeight}"
+                           Width="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}, Path=ActualWidth}"/>
+                                    </ItemsPanelTemplate>
+                                </ListBox.ItemsPanel>
+                            </ListBox>
+                        </Grid>
+
+                    </Border>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+
+        <Controls:Flyout Height="75" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="3" 
+                             CloseButtonVisibility="Collapsed" IsOpen="True"
+                             IsPinned="False" Theme="Accent"
+                             Position="Bottom"
+                             TitleVisibility="Collapsed" >
+            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Right" Orientation="Horizontal">
+                <TextBlock x:Name="total"  Text="{Binding Total,StringFormat=Total: {0:f1} Rs}" Margin="10" TextAlignment="Center"
+                            FontWeight="Light" FontSize="26" Foreground="{StaticResource ResourceKey=salecolor}"/>
+                <Button  Width="60" Background="White"
+                        Height="60" x:Name="confirm" Foreground="{StaticResource ResourceKey=salecolor}"
+                        Style="{DynamicResource MetroCircleButtonStyle}" TouchUp="confirm_TouchDown" >
+                    <Rectangle Width="30"
+                               Height="30" 
+                               Fill="{Binding Path=Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}">
+                        <Rectangle.OpacityMask>
+                            <VisualBrush Stretch="Fill" Visual="{DynamicResource appbar_billing}" />
+                        </Rectangle.OpacityMask>
+                    </Rectangle>
+                </Button>
+                <Button  Width="60" Background="White"
+                        Height="60" x:Name="cancel" Foreground="{StaticResource CleanWindowCloseButtonBackgroundBrush}"
+                        Style="{DynamicResource MetroCircleButtonStyle}" TouchDown="cancel_TouchDown">
+                    <Rectangle Width="20"
+                               Height="30"
+                               Fill="{Binding Path=Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}">
+                        <Rectangle.OpacityMask>
+                            <VisualBrush Stretch="Fill" Visual="{DynamicResource appbar_delete}" />
+                        </Rectangle.OpacityMask>
+                    </Rectangle>
+                </Button>
+            </StackPanel>
+        </Controls:Flyout>
+        <Controls:FlyoutsControl x:Name="fly" Grid.Row="0" Grid.RowSpan="2"  BorderBrush="{StaticResource AccentColorBrush}" BorderThickness="3"
+                                 Grid.Column="1" Grid.ColumnSpan="2">
+            <Controls:Flyout Width="auto"  
+                             IsOpen="{Binding Open,Mode=TwoWay}" Theme="Adapt"
+                             Position="Right"                                
+                             ScrollViewer.PanningMode="Both" BorderBrush="{StaticResource AccentColorBrush}" BorderThickness="3"
+                             AreAnimationsEnabled="True" 
+                             Header="Confirm Order">
+                <ScrollViewer x:Name="flyout" ScrollViewer.PanningMode="Both" ScrollViewer.VerticalScrollBarVisibility="Hidden">
+                    <DockPanel Margin="20" Width="400">
+                        <TextBox x:Name="total1" Text="{Binding Total}"
+                             FontSize="24" IsEnabled="False"
+                             Height="60" Width="210" BorderBrush="{StaticResource AccentColorBrush}"
+                             Controls:TextBoxHelper.UseFloatingWatermark="True"
+                             Controls:TextBoxHelper.Watermark="Total Amount"
+                             DockPanel.Dock="Top" KeyDown="tenterd_KeyDown"  />
+                        <TextBox x:Name="tenterd" Validation.Error="tenterd_Error"
+                             FontSize="24" Text="{Binding Balance,Mode=TwoWay,NotifyOnSourceUpdated=True,UpdateSourceTrigger=PropertyChanged,NotifyOnValidationError=True}"
+                             Height="60" Width="210" BorderBrush="{StaticResource AccentColorBrush}"
+                             Controls:TextBoxHelper.ClearTextButton="True"
+                             Controls:TextBoxHelper.IsWaitingForData="True"
+                             Controls:TextBoxHelper.UseFloatingWatermark="True" TextChanged="tenterd_TextChanged"
+                             Controls:TextBoxHelper.Watermark="Enter Tendered Amount"
+                             DockPanel.Dock="Top" KeyDown="tenterd_KeyDown"  />
+
+                        <StackPanel DockPanel.Dock="Top" Orientation="Vertical" Width="210">
+                            <StackPanel Orientation="Horizontal">
+                                <Button Width="70" Height="70" Content="7" FontSize="24" Foreground="{DynamicResource AccentColorBrush}"   Style="{DynamicResource MetroCircleButtonStyle}" TouchDown="Button_TouchUp"/>
+                                <Button Width="70" Height="70" Content="8" FontSize="24" Foreground="{DynamicResource AccentColorBrush}"   Style="{DynamicResource MetroCircleButtonStyle}" TouchDown="Button_TouchUp_4"/>
+                                <Button Width="70" Height="70" Content="9" FontSize="24" Foreground="{DynamicResource AccentColorBrush}"   Style="{DynamicResource MetroCircleButtonStyle}" TouchDown="Button_TouchUp_5"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <Button Width="70" Height="70" Content="4" FontSize="24" Foreground="{DynamicResource AccentColorBrush}"   Style="{DynamicResource MetroCircleButtonStyle}" TouchDown="Button_TouchUp_6"/>
+                                <Button Width="70" Height="70" Content="5" FontSize="24" Foreground="{DynamicResource AccentColorBrush}"   Style="{DynamicResource MetroCircleButtonStyle}" TouchDown="Button_TouchUp_1"/>
+                                <Button Width="70" Height="70" Content="6" FontSize="24" Foreground="{DynamicResource AccentColorBrush}"   Style="{DynamicResource MetroCircleButtonStyle}" TouchDown="Button_TouchUp_7"/>
+
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <Button Width="70" Height="70" Content="1" FontSize="24" Foreground="{DynamicResource AccentColorBrush}"   Style="{DynamicResource MetroCircleButtonStyle}" TouchDown="Button_TouchUp_8"/>
+                                <Button Width="70" Height="70" Content="2" FontSize="24" Foreground="{DynamicResource AccentColorBrush}"   Style="{DynamicResource MetroCircleButtonStyle}" TouchDown="Button_TouchUp_9"/>
+                                <Button Width="70" Height="70" Content="3" FontSize="24" Foreground="{DynamicResource AccentColorBrush}"   Style="{DynamicResource MetroCircleButtonStyle}" TouchDown="Button_TouchUp_10"/>
+
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <Button Width="70" Height="70" Content="C" FontSize="24" Foreground="{DynamicResource AccentColorBrush}"   Style="{DynamicResource MetroCircleButtonStyle}" TouchDown="Button_TouchUp_11"/>
+                                <Button Width="70" Height="70" Content="0" FontSize="24" Foreground="{DynamicResource AccentColorBrush}"   Style="{DynamicResource MetroCircleButtonStyle}" TouchDown="Button_TouchUp_2"/>
+                                <Button Width="70" Height="70" FontSize="24" Foreground="{DynamicResource AccentColorBrush}"   Style="{DynamicResource MetroCircleButtonStyle}" TouchDown="Button_TouchUp_12">
+                                    <Rectangle Width="35"
+                               Height="25"
+                               Fill="{Binding Path=Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}">
+                                        <Rectangle.OpacityMask>
+                                            <VisualBrush Stretch="Fill" Visual="{DynamicResource appbar_clear_reflect_horizontal}" />
+                                        </Rectangle.OpacityMask>
+                                    </Rectangle>
+                                </Button>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <Button Width="210" Height="50" FontSize="20" FontWeight="ExtraLight"
+                    Margin="{StaticResource ControlMargin}" Name="Confirm_Sale"
+                    Content="Confirm Sale"
+                    TouchDown="Button_TouchUp_3"  >
+                                    <Button.Style>
+                                        <Style BasedOn="{StaticResource AccentedSquareButtonStyle}" TargetType="{x:Type Button}">
+                                            <Setter Property="RenderTransform" Value="{StaticResource transformGroup}" />
+                                            <Setter Property="Background" Value="{StaticResource salecolor}"></Setter>
+                                            <Style.Triggers>
+                                                <EventTrigger RoutedEvent="Button.TouchDown">
+                                                    <BeginStoryboard>
+                                                        <Storyboard >
+                                                            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)">
+                                                                <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="0.9"/>
+                                                                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="1"/>
+                                                            </DoubleAnimationUsingKeyFrames>
+                                                            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)">
+                                                                <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="0.9"/>
+                                                                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="1"/>
+                                                            </DoubleAnimationUsingKeyFrames>
+                                                        </Storyboard>
+                                                    </BeginStoryboard>
+                                                </EventTrigger>
+                                                <Trigger Property="IsMouseOver" Value="True">
+                                                    <Setter Property="Background" Value="{StaticResource salecolor}"/>
+                                                </Trigger>
+                                            </Style.Triggers>
+
+                                        </Style>
+                                    </Button.Style>
+                                </Button>
+                            </StackPanel>
+                        </StackPanel>
+                        <TextBox x:Name="rem" Foreground="{StaticResource salecolor}" 
+                             FontSize="28" IsEnabled="False" DockPanel.Dock="Bottom" Width="300"
+                             Height="60"  BorderBrush="{StaticResource salecolor}" BorderThickness="3"
+                             Controls:TextBoxHelper.UseFloatingWatermark="True"
+                             Controls:TextBoxHelper.Watermark="Balance"
+                             KeyDown="tenterd_KeyDown"  >
+                            
+                        </TextBox>
+                    </DockPanel>
+
+
+                </ScrollViewer>
+            </Controls:Flyout>
+        </Controls:FlyoutsControl>
+
+    </Grid>
+</Page>

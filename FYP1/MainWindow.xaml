@@ -1,0 +1,36 @@
+﻿ <Controls:MetroWindow x:Class="FYP1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns:local="clr-namespace:FYP1" NonActiveWindowTitleBrush="{DynamicResource AccentColorBrush}"
+        mc:Ignorable="d" Name="mainWindow"
+        Title="BMS" TitleCaps="False" BorderThickness="2" GlowBrush="{DynamicResource AccentColorBrush}" 
+                       Height="auto" Width="auto" WindowState="Maximized" ResizeMode="NoResize" 
+                     Icon="Resources\Counting-Machine-small-task.png" RightWindowCommandsOverlayBehavior="Never"
+                       IgnoreTaskbarOnMaximize="True" Loaded="mainWindow_Loaded">
+    
+     <Controls:MetroWindow.IconTemplate>
+        <DataTemplate>
+            <Image Source="Resources\Counting-Machine-small.png"/>
+        </DataTemplate>
+    </Controls:MetroWindow.IconTemplate>
+    <Grid ManipulationBoundaryFeedback="ManipulationBoundaryFeedbackHandler">
+        <Grid.RowDefinitions>
+
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Frame x:Name="mainframe" Grid.Row="0" Content="Frame" JournalOwnership="UsesParentJournal"
+               JournalEntry.KeepAlive="False"
+               Source="LoginPage.xaml" Width="auto" Height="auto"  />
+        <StatusBar Grid.Row="1">
+            <StatusBarItem>BMS</StatusBarItem>
+            <Separator Style="{StaticResource MetroStatusBarSeparator}" />
+            <StatusBarItem>Company Name:</StatusBarItem>
+            <StatusBarItem Content="Shakeel Tarders" />
+            <StatusBarItem  Name="clock" FontSize="18" Margin="0,0,10,0" Content="{Binding Time}" HorizontalAlignment="Right" />
+        </StatusBar>
+    </Grid>
+</Controls:MetroWindow>

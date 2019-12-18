@@ -1,0 +1,9 @@
+﻿Building FYP1...
+1>------ Publish started: Project: FYP1, Configuration: Debug Any CPU ------
+1>  FYP1 -> C:\Users\owner\documents\visual studio 2015\Projects\FYP1\FYP1\bin\Debug\FYP1.exe
+Connecting to 'F:\fyp\'...
+Publishing files...
+Publish success.
+F:\fyp\
+========== Build: 0 succeeded, 0 failed, 1 up-to-date, 0 skipped ==========
+========== Publish: 1 succeeded, 0 failed, 0 skipped ==========

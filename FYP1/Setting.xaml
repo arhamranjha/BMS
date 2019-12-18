@@ -1,0 +1,105 @@
+﻿<Page x:Class="FYP1.Setting"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
+      xmlns:local="clr-namespace:FYP1"
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="900"
+      Title="PageSetting" Loaded="Page_Loaded">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="17*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10*"/>
+            <ColumnDefinition Width="80*"/>
+            <ColumnDefinition Width="20*"/>
+        </Grid.ColumnDefinitions>
+        <RichTextBox x:Name="richTextBox" FontSize="36" Foreground="{DynamicResource AccentColorBrush}"
+                     Grid.Column="1"  HorizontalAlignment="Left" Height="auto"  VerticalAlignment="Top"
+                     Width="auto" BorderThickness="0"  Controls:TextBoxHelper.IsSpellCheckContextMenuEnabled="True"
+                             IsDocumentEnabled="True" FontStyle="Italic" IsReadOnly="True">
+            <FlowDocument>
+                <Paragraph>
+                    <Run Text="Setting..." FontStyle="Normal" FontWeight="Light"/>
+                </Paragraph>
+            </FlowDocument>
+        </RichTextBox>
+
+        <Button  Width="60"
+                        Height="60" x:Name="backButton" 
+                        Style="{DynamicResource MetroCircleButtonStyle}" Foreground="{DynamicResource  AccentColorBrush}" TouchUp="backButton_TouchUp">
+            <Rectangle Width="30"
+                               Height="30"
+                               Fill="{Binding Path=Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}">
+                <Rectangle.OpacityMask>
+                    <VisualBrush Stretch="Fill" Visual="{DynamicResource appbar_chevron_left}" />
+                </Rectangle.OpacityMask>
+            </Rectangle>
+        </Button>
+        <StackPanel Grid.Column="1" Grid.Row="1"  ScrollViewer.PanningMode="Both" ScrollViewer.VerticalScrollBarVisibility="Hidden">
+            <StackPanel Width="400" Margin="20">
+                <ComboBox x:Name="theme" FontSize="24" 
+                          Margin="10,20,10,30" SelectedIndex="0"
+                          Controls:TextBoxHelper.UseFloatingWatermark="True"
+                          Controls:TextBoxHelper.Watermark="Choose Theme"                          
+                           SelectionChanged="theme_SelectionChanged"
+                          MaxDropDownHeight="200"
+                          Style="{DynamicResource VirtualisedMetroComboBox}">
+                    <ComboBoxItem >BaseLight</ComboBoxItem>
+                    <ComboBoxItem>BaseDark</ComboBoxItem>
+                </ComboBox>
+                <ComboBox x:Name="color"  FontSize="24" SelectedIndex="0"
+                          Margin="10,20,10,30"
+                          Controls:TextBoxHelper.Watermark="Choose Accent Color"
+                          MaxDropDownHeight="200"
+                          Style="{DynamicResource VirtualisedMetroComboBox}">
+                    <ComboBoxItem>Blue</ComboBoxItem>
+                    <ComboBoxItem>Red</ComboBoxItem>
+                    <ComboBoxItem>Green</ComboBoxItem>
+                    <ComboBoxItem>Purple</ComboBoxItem>
+                    <ComboBoxItem>Orange</ComboBoxItem>
+                    <ComboBoxItem>Emerald</ComboBoxItem>
+                    <ComboBoxItem>Teal</ComboBoxItem>
+                    <ComboBoxItem>Cyan</ComboBoxItem>
+                    <ComboBoxItem>Cobalt</ComboBoxItem>
+                    <ComboBoxItem>Indigo</ComboBoxItem>
+                    <ComboBoxItem>Violet</ComboBoxItem>
+                    <ComboBoxItem>Pink</ComboBoxItem>
+                    <ComboBoxItem>Magenta</ComboBoxItem>
+                    <ComboBoxItem>Crimson</ComboBoxItem>
+                    <ComboBoxItem>Amber</ComboBoxItem>
+                    <ComboBoxItem>Yellow</ComboBoxItem>
+                    <ComboBoxItem>Brown</ComboBoxItem>
+                    <ComboBoxItem>Olive</ComboBoxItem>
+                    <ComboBoxItem>Steel</ComboBoxItem>
+                    <ComboBoxItem>Mauve</ComboBoxItem>
+                    <ComboBoxItem>Taupe</ComboBoxItem>
+                    <ComboBoxItem>Sienna</ComboBoxItem>
+                    
+                </ComboBox>
+                <StackPanel Orientation="Horizontal" Margin="{StaticResource ControlMargin}" HorizontalAlignment="Right">
+                    <Button Margin="10,0,10,0"  Width="60" Background="White" HorizontalAlignment="left"
+                        Height="60" x:Name="addnew" Foreground="{DynamicResource  AccentColorBrush}"
+                        Style="{DynamicResource MetroCircleButtonStyle}" TouchDown="addnew_TouchDown" >
+                        <Rectangle Width="30"
+                               Height="30"
+                               Fill="{Binding Path=Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}">
+                            <Rectangle.OpacityMask>
+                                <VisualBrush Stretch="Fill" Visual="{DynamicResource appbar_draw_brush}" />
+                            </Rectangle.OpacityMask>
+                        </Rectangle>
+                    </Button>
+
+                </StackPanel>
+
+            </StackPanel>
+
+        </StackPanel>
+
+    </Grid>
+</Page>

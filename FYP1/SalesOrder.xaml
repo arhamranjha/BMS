@@ -1,0 +1,235 @@
+﻿<Page x:Class="FYP1.SalesOrder"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
+      xmlns:local="clr-namespace:FYP1"
+      xmlns:local1="clr-namespace:FYP1.Models"
+      xmlns:scm="clr-namespace:System.ComponentModel;assembly=WindowsBase"
+      
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="900"
+      Title="SalesOrder" Loaded="Page_Loaded">
+    <Page.Resources>
+
+
+
+        <Storyboard x:Key="anim">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="catagory">
+                <EasingDoubleKeyFrame KeyTime="0" Value="20"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="16"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="12"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="6"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="2"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="catagory">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0.2"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="0.4"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0.6"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="0.8"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="0.9"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="anim1">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="listBox">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0.2"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="0.4"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0.6"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="0.7"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="0.8"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="0.95"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="listBox">
+                <EasingDoubleKeyFrame KeyTime="0" Value="60"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="50"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="40"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="30"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="15"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="5"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+
+
+
+    </Page.Resources>
+    <Page.Triggers>
+        <EventTrigger RoutedEvent="Selector.SelectionChanged" SourceName="catagory">
+            <BeginStoryboard x:Name="anim_BeginStoryboard" Storyboard="{StaticResource anim1}"/>
+            <BeginStoryboard Storyboard="{StaticResource anim}"/>
+        </EventTrigger>
+      
+    </Page.Triggers>
+
+
+
+    <Grid x:Name="gridSource">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="17*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10*"/>
+            <ColumnDefinition Width="80*"/>
+            <ColumnDefinition Width="20*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Column="1" Margin="10">
+            <Grid.Resources>
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.AnimatedSingleRowTabControl.xaml" />
+            </Grid.Resources>
+            <TabControl x:Name="catagory"  ScrollViewer.PanningMode="Both" ItemsSource="{Binding ProductCollection}"
+                        Controls:TabControlHelper.IsUnderlined="True" FontSize="26" SelectionChanged="catagory_SelectionChanged" RenderTransformOrigin="0.5,0.5"  >
+                <TabControl.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </TabControl.RenderTransform>
+                <TabControl.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock  Text="{Binding ProductName,ValidatesOnDataErrors=False,NotifyOnValidationError=False,ValidatesOnExceptions=False,ValidatesOnNotifyDataErrors=False}" Margin="5"/>
+                    </DataTemplate>
+                </TabControl.ItemTemplate>
+                <TabControl.ContentTemplate>
+                    <DataTemplate>
+                    </DataTemplate>
+                </TabControl.ContentTemplate>
+
+            </TabControl>
+        </Grid>
+        <ListBox x:Name="listBox" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" ScrollViewer.PanningMode="Both"
+                 ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Hidden"
+                 HorizontalAlignment="Left" 
+                 VerticalAlignment="Top" SelectionMode="Single"
+                 Focusable="False" ItemContainerStyle="{StaticResource listi}"
+                 ItemsSource="{Binding ProductCollection,Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"
+                  >
+            <ListBox.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </ListBox.RenderTransform>
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Background="Transparent"  Orientation="Horizontal">
+                        <Controls:Tile Title="{Binding ProductPrice,StringFormat=Price: {0:c}}" BorderThickness="0" Tag="{Binding Productid}"
+        				Style="{StaticResource SmallTileStyle1}" 
+        				Background="{DynamicResource  AccentColorBrush}" TouchDown="Tile_TouchDown" >
+                            <TextBlock Text="{Binding ProductName}"  FontSize="24" TextWrapping="Wrap"
+                                       FontWeight="Light" TextAlignment="Center" MaxWidth="130" />
+                        </Controls:Tile>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel Orientation="Horizontal" 
+                           Height="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}, Path=ActualHeight}"
+                           Width="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}, Path=ActualWidth}"/>
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
+
+        </ListBox>
+
+        <StackPanel Orientation="Horizontal" Margin="0,0,15,0" Grid.Column="3" HorizontalAlignment="Right">
+            <Button  Width="60"
+                        Height="60"
+                        Margin="0,0,10,0"
+                        Style="{DynamicResource MetroCircleButtonStyle}"
+Foreground="{DynamicResource  AccentColorBrush}"
+                     x:Name="selectedProducts" TouchDown="selectedProducts_TouchDown" >
+                <Rectangle Width="30"
+                               Height="30"
+                               Fill="{Binding Path=Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}">
+                    <Rectangle.OpacityMask>
+                        <VisualBrush Stretch="Fill" Visual="{DynamicResource appbar_inbox_in}"/>
+                    </Rectangle.OpacityMask>
+                </Rectangle>
+            </Button>
+            <Button  Width="60"
+                        Height="60" TouchUp="confirmOrder_TouchUp"
+                        Style="{DynamicResource MetroCircleButtonStyle}" 
+                     Foreground="{DynamicResource  AccentColorBrush}">
+                <Rectangle Width="30"
+                               Height="30" x:Name="confirmOrder"
+                               Fill="{Binding Path=Foreground, 
+                    RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}" 
+                           >
+                    <Rectangle.OpacityMask>
+                        <VisualBrush Stretch="Fill" Visual="{DynamicResource appbar_cart}" />
+                    </Rectangle.OpacityMask>
+                </Rectangle>
+            </Button>
+
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Grid.Column="0" Margin="10,0,0,0">
+            <Button  Width="60"
+                        Height="60" x:Name="backButton"
+                        Style="{DynamicResource MetroCircleButtonStyle}" Foreground="{DynamicResource  AccentColorBrush}" TouchUp="backButton_TouchUp">
+                <Rectangle Width="30"
+                               Height="30"
+                               Fill="{Binding Path=Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}">
+                    <Rectangle.OpacityMask>
+                        <VisualBrush Stretch="Fill" Visual="{DynamicResource appbar_chevron_left}" />
+                    </Rectangle.OpacityMask>
+                </Rectangle>
+            </Button>
+        </StackPanel>
+
+
+        <Controls:FlyoutsControl x:Name="fly" Grid.Row="0" Grid.RowSpan="2"  
+                                 Grid.Column="1" Grid.ColumnSpan="2" RenderTransformOrigin="0.5,0.5">
+            <Controls:FlyoutsControl.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Controls:FlyoutsControl.RenderTransform>
+            <Controls:Flyout Width="auto" x:Name="flyout" 
+                             IsOpen="{Binding Open,Mode=TwoWay}" Theme="Adapt"
+                             Position="Right"                               
+                             ScrollViewer.PanningMode="Both"
+                             AreAnimationsEnabled="True"
+                             Header="Products in cart">
+                <ListBox Margin="50,0,0,0" x:Name="flyoutlistbox" Grid.Column="1" Grid.Row="1" 
+                         ScrollViewer.CanContentScroll="True"
+                         ScrollViewer.VerticalScrollBarVisibility="Hidden"
+                         Grid.ColumnSpan="2"                  
+                         ScrollViewer.PanningMode="Both" ItemsSource="{Binding ProductCollection,Mode=TwoWay}"
+                         ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                         HorizontalAlignment="Left"  VerticalAlignment="Top" ItemContainerStyle="{StaticResource listi1}"
+                         SelectionMode="Single" SelectionChanged="flyoutlistbox_SelectionChanged">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Vertical"  HorizontalAlignment="Left"
+                                        VerticalAlignment="Top" Background="Transparent"
+                                 Grid.Column="1" Grid.Row="1" Width="250">
+                                <StackPanel Orientation="Vertical" Background="Transparent">
+                                    <TextBlock Text="{Binding ProductName}" Foreground="{StaticResource AccentColorBrush}" FontSize="20"/>
+                                    <TextBlock Text="{Binding ProductDesc}" FontSize="14"/>
+                                </StackPanel>
+                                <StackPanel Background="Transparent" Orientation="Horizontal" Margin="20"  HorizontalAlignment="Right">
+                                    <TextBlock Text="{Binding ProductTotalQuantity,StringFormat=Units:  {0:n}}" FontSize="16" />
+                                    <TextBlock Text="  " FontSize="16" />
+                                    <TextBlock Text="{Binding ProductTotalPrice,StringFormat=Amount:  {0:c}}" FontSize="16"/>
+                                </StackPanel>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </Controls:Flyout>
+        </Controls:FlyoutsControl>
+    </Grid>
+</Page>

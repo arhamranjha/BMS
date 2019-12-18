@@ -1,0 +1,4134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="POS_Get_Catagory">
+        <s:complexType />
+      </s:element>
+      <s:element name="POS_Get_CatagoryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="POS_Get_CatagoryResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="POS_Get_Customer">
+        <s:complexType />
+      </s:element>
+      <s:element name="POS_Get_CustomerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="POS_Get_CustomerResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="POS_Get_Employee">
+        <s:complexType />
+      </s:element>
+      <s:element name="POS_Get_EmployeeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="POS_Get_EmployeeResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="POS_Get_Rank">
+        <s:complexType />
+      </s:element>
+      <s:element name="POS_Get_RankResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="POS_Get_RankResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="POS_Login">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pin" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="got" nillable="true" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="POS_LoginResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="POS_LoginResult" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="got" nillable="true" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="APP_Login">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pass" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="APP_LoginResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="APP_LoginResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="POS_Report_Sale">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DF" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="DT" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="POS_Report_SaleResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="POS_Report_SaleResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="POS_Get_Customer_Ledger">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Customer_id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="POS_Get_Customer_LedgerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="POS_Get_Customer_LedgerResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="POS_Get_Customer_Ledger_FilterDate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Customer_id" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="DF" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="DT" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="POS_Get_Customer_Ledger_FilterDateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="POS_Get_Customer_Ledger_FilterDateResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="POS_Get_Bill_Product">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="billid" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="POS_Get_Bill_ProductResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="POS_Get_Bill_ProductResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="POS_Get_Bill_Product_Shipment">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="billid" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="POS_Get_Bill_Product_ShipmentResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="POS_Get_Bill_Product_ShipmentResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="POS_Get_Bill">
+        <s:complexType />
+      </s:element>
+      <s:element name="POS_Get_BillResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="POS_Get_BillResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="POS_Get_Bill_Shipment">
+        <s:complexType />
+      </s:element>
+      <s:element name="POS_Get_Bill_ShipmentResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="POS_Get_Bill_ShipmentResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="APP_Report_Sale">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DF" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="DT" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="APP_Report_SaleResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="APP_Report_SaleResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="POS_Report_Sale_test1">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DF" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="DT" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="POS_Report_Sale_test1Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="POS_Report_Sale_test1Result" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="POS_Report_Sale_test2">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DF" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="DT" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="POS_Report_Sale_test2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="POS_Report_Sale_test2Result" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="POS_Most_sold">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DF" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="DT" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="POS_Most_soldResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="POS_Most_soldResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="POS_Product_QtySold">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DF" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="DT" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="POS_Product_QtySoldResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="POS_Product_QtySoldResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="POS_Employeer_selling">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DF" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="DT" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="POS_Employeer_sellingResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="POS_Employeer_sellingResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="POS_Get_Status">
+        <s:complexType />
+      </s:element>
+      <s:element name="POS_Get_StatusResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="POS_Get_StatusResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="POS_Get_Products_Options_Rel">
+        <s:complexType />
+      </s:element>
+      <s:element name="POS_Get_Products_Options_RelResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="POS_Get_Products_Options_RelResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="POS_Start_Bill">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="got" nillable="true" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="emp_id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="POS_Start_BillResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="POS_Start_BillResult" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="got" nillable="true" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="POS_Get_CustomerBill">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="customer_id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="POS_Get_CustomerBillResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="POS_Get_CustomerBillResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="POS_Update_Bill">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="billid" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="total" type="s:decimal" />
+            <s:element minOccurs="1" maxOccurs="1" name="Customr_id" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="Paid_amount" type="s:decimal" />
+            <s:element minOccurs="0" maxOccurs="1" name="Payment_method" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="POS_Update_BillResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="POS_Update_BillResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="POS_delete_bill">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="billid" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="POS_delete_billResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="POS_delete_billResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="POS_Delete_Bill_Product">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="billid" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="POS_Delete_Bill_ProductResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="POS_Delete_Bill_ProductResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="POS_Delete_Bill_Product_Shipment">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="billid" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="POS_Delete_Bill_Product_ShipmentResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="POS_Delete_Bill_Product_ShipmentResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="POS_Order_Product">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="got" nillable="true" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="result" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="POS_Order_ProductResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="POS_Order_ProductResult" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="got" nillable="true" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="POS_Order_Options">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="got" nillable="true" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="result" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="POS_Order_OptionsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="POS_Order_OptionsResult" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="got" nillable="true" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="POS_add_Employee">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="LName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Status_id" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="phone_no" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Rank_id" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="birthdate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PIN" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Joindate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Jobdesc" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Absents" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Salary" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Net_amount" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="POS_add_EmployeeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="POS_add_EmployeeResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="POS_Add_Bill_Product">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="result" nillable="true" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="str" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="POS_Add_Bill_ProductResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="POS_Add_Bill_ProductResult" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="result" nillable="true" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="POS_Add_Bill_Product_Shipment">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="result" nillable="true" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="str" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="POS_Add_Bill_Product_ShipmentResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="POS_Add_Bill_Product_ShipmentResult" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="result" nillable="true" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="POS_update_Employee">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="FName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="LName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Status_id" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="phone_no" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Rank_id" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="birthdate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PIN" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Joindate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Jobdesc" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Absents" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Salary" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Net_amount" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="POS_update_EmployeeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="POS_update_EmployeeResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="POS_Update_Customer_Balance">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Customer_id" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="Balance" type="s:decimal" />
+            <s:element minOccurs="1" maxOccurs="1" name="flag" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="POS_Update_Customer_BalanceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="POS_Update_Customer_BalanceResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="POS_add_catagory">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="catagoryName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="catagoryDetail" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="POS_add_catagoryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="POS_add_catagoryResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="POS_Add_Customer">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Customer_name" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Balance" type="s:decimal" />
+            <s:element minOccurs="0" maxOccurs="1" name="Location" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Last_tally" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PhoneNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Address" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="POS_Add_CustomerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="POS_Add_CustomerResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="POS_update_catagory">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="catagoryid" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="catagoryName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="catagoryDetail" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="POS_update_catagoryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="POS_update_catagoryResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="POS_Update_Customer">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Customer_id" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Customer_name" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Balance" type="s:decimal" />
+            <s:element minOccurs="0" maxOccurs="1" name="Location" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Last_tally" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PhoneNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Address" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="POS_Update_CustomerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="POS_Update_CustomerResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="POS_delete_catagory">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="catagoryid" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="POS_delete_catagoryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="POS_delete_catagoryResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="POS_Delete_Customer">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Customer_id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="POS_Delete_CustomerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="POS_Delete_CustomerResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="POS_add_Product">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="productName" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="catagoryid" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="price" type="s:decimal" />
+            <s:element minOccurs="1" maxOccurs="1" name="statusid" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="quantity" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="productDesc" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="buyingPrice" type="s:decimal" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="POS_add_ProductResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="POS_add_ProductResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="POS_Update_Product">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="productid" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="productName" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="catagoryid" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="price" type="s:decimal" />
+            <s:element minOccurs="1" maxOccurs="1" name="statusid" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="quantity" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="productDesc" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="buyingPrice" type="s:decimal" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="POS_Update_ProductResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="POS_Update_ProductResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="POS_Delete_Product">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="productid" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="POS_Delete_ProductResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="POS_Delete_ProductResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="POS_add_ProductOption">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="optionName" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="optionPrice" type="s:decimal" />
+            <s:element minOccurs="0" maxOccurs="1" name="optionDetails" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="POS_add_ProductOptionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="POS_add_ProductOptionResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="POS_update_ProductOption">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="productid" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="optionName" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="optionPrice" type="s:decimal" />
+            <s:element minOccurs="0" maxOccurs="1" name="optionDetails" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="POS_update_ProductOptionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="POS_update_ProductOptionResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="POS_delete_ProductOption">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="productid" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="POS_delete_ProductOptionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="POS_delete_ProductOptionResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="POS_add_ProductOptionRelation">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="productid" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="optionid" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="POS_add_ProductOptionRelationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="POS_add_ProductOptionRelationResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="POS_update_ProductOptionRelation">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="productid" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="Oldoptionid" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="Newoptionid" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="POS_update_ProductOptionRelationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="POS_update_ProductOptionRelationResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="POS_delete_ProductOptionRelation">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="productid" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="optionid" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="POS_delete_ProductOptionRelationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="POS_delete_ProductOptionRelationResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="POS_Get_Product">
+        <s:complexType />
+      </s:element>
+      <s:element name="POS_Get_ProductResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="POS_Get_ProductResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="POS_Get_ProductOptions">
+        <s:complexType />
+      </s:element>
+      <s:element name="POS_Get_ProductOptionsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="POS_Get_ProductOptionsResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="POS_Sale_Order">
+        <s:complexType />
+      </s:element>
+      <s:element name="POS_Sale_OrderResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="POS_Sale_OrderResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="string" nillable="true" type="s:string" />
+      <s:element name="int" type="s:int" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="POS_Get_CatagorySoapIn">
+    <wsdl:part name="parameters" element="tns:POS_Get_Catagory" />
+  </wsdl:message>
+  <wsdl:message name="POS_Get_CatagorySoapOut">
+    <wsdl:part name="parameters" element="tns:POS_Get_CatagoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="POS_Get_CustomerSoapIn">
+    <wsdl:part name="parameters" element="tns:POS_Get_Customer" />
+  </wsdl:message>
+  <wsdl:message name="POS_Get_CustomerSoapOut">
+    <wsdl:part name="parameters" element="tns:POS_Get_CustomerResponse" />
+  </wsdl:message>
+  <wsdl:message name="POS_Get_EmployeeSoapIn">
+    <wsdl:part name="parameters" element="tns:POS_Get_Employee" />
+  </wsdl:message>
+  <wsdl:message name="POS_Get_EmployeeSoapOut">
+    <wsdl:part name="parameters" element="tns:POS_Get_EmployeeResponse" />
+  </wsdl:message>
+  <wsdl:message name="POS_Get_RankSoapIn">
+    <wsdl:part name="parameters" element="tns:POS_Get_Rank" />
+  </wsdl:message>
+  <wsdl:message name="POS_Get_RankSoapOut">
+    <wsdl:part name="parameters" element="tns:POS_Get_RankResponse" />
+  </wsdl:message>
+  <wsdl:message name="POS_LoginSoapIn">
+    <wsdl:part name="parameters" element="tns:POS_Login" />
+  </wsdl:message>
+  <wsdl:message name="POS_LoginSoapOut">
+    <wsdl:part name="parameters" element="tns:POS_LoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="APP_LoginSoapIn">
+    <wsdl:part name="parameters" element="tns:APP_Login" />
+  </wsdl:message>
+  <wsdl:message name="APP_LoginSoapOut">
+    <wsdl:part name="parameters" element="tns:APP_LoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="POS_Report_SaleSoapIn">
+    <wsdl:part name="parameters" element="tns:POS_Report_Sale" />
+  </wsdl:message>
+  <wsdl:message name="POS_Report_SaleSoapOut">
+    <wsdl:part name="parameters" element="tns:POS_Report_SaleResponse" />
+  </wsdl:message>
+  <wsdl:message name="POS_Get_Customer_LedgerSoapIn">
+    <wsdl:part name="parameters" element="tns:POS_Get_Customer_Ledger" />
+  </wsdl:message>
+  <wsdl:message name="POS_Get_Customer_LedgerSoapOut">
+    <wsdl:part name="parameters" element="tns:POS_Get_Customer_LedgerResponse" />
+  </wsdl:message>
+  <wsdl:message name="POS_Get_Customer_Ledger_FilterDateSoapIn">
+    <wsdl:part name="parameters" element="tns:POS_Get_Customer_Ledger_FilterDate" />
+  </wsdl:message>
+  <wsdl:message name="POS_Get_Customer_Ledger_FilterDateSoapOut">
+    <wsdl:part name="parameters" element="tns:POS_Get_Customer_Ledger_FilterDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="POS_Get_Bill_ProductSoapIn">
+    <wsdl:part name="parameters" element="tns:POS_Get_Bill_Product" />
+  </wsdl:message>
+  <wsdl:message name="POS_Get_Bill_ProductSoapOut">
+    <wsdl:part name="parameters" element="tns:POS_Get_Bill_ProductResponse" />
+  </wsdl:message>
+  <wsdl:message name="POS_Get_Bill_Product_ShipmentSoapIn">
+    <wsdl:part name="parameters" element="tns:POS_Get_Bill_Product_Shipment" />
+  </wsdl:message>
+  <wsdl:message name="POS_Get_Bill_Product_ShipmentSoapOut">
+    <wsdl:part name="parameters" element="tns:POS_Get_Bill_Product_ShipmentResponse" />
+  </wsdl:message>
+  <wsdl:message name="POS_Get_BillSoapIn">
+    <wsdl:part name="parameters" element="tns:POS_Get_Bill" />
+  </wsdl:message>
+  <wsdl:message name="POS_Get_BillSoapOut">
+    <wsdl:part name="parameters" element="tns:POS_Get_BillResponse" />
+  </wsdl:message>
+  <wsdl:message name="POS_Get_Bill_ShipmentSoapIn">
+    <wsdl:part name="parameters" element="tns:POS_Get_Bill_Shipment" />
+  </wsdl:message>
+  <wsdl:message name="POS_Get_Bill_ShipmentSoapOut">
+    <wsdl:part name="parameters" element="tns:POS_Get_Bill_ShipmentResponse" />
+  </wsdl:message>
+  <wsdl:message name="APP_Report_SaleSoapIn">
+    <wsdl:part name="parameters" element="tns:APP_Report_Sale" />
+  </wsdl:message>
+  <wsdl:message name="APP_Report_SaleSoapOut">
+    <wsdl:part name="parameters" element="tns:APP_Report_SaleResponse" />
+  </wsdl:message>
+  <wsdl:message name="POS_Report_Sale_test1SoapIn">
+    <wsdl:part name="parameters" element="tns:POS_Report_Sale_test1" />
+  </wsdl:message>
+  <wsdl:message name="POS_Report_Sale_test1SoapOut">
+    <wsdl:part name="parameters" element="tns:POS_Report_Sale_test1Response" />
+  </wsdl:message>
+  <wsdl:message name="POS_Report_Sale_test2SoapIn">
+    <wsdl:part name="parameters" element="tns:POS_Report_Sale_test2" />
+  </wsdl:message>
+  <wsdl:message name="POS_Report_Sale_test2SoapOut">
+    <wsdl:part name="parameters" element="tns:POS_Report_Sale_test2Response" />
+  </wsdl:message>
+  <wsdl:message name="POS_Most_soldSoapIn">
+    <wsdl:part name="parameters" element="tns:POS_Most_sold" />
+  </wsdl:message>
+  <wsdl:message name="POS_Most_soldSoapOut">
+    <wsdl:part name="parameters" element="tns:POS_Most_soldResponse" />
+  </wsdl:message>
+  <wsdl:message name="POS_Product_QtySoldSoapIn">
+    <wsdl:part name="parameters" element="tns:POS_Product_QtySold" />
+  </wsdl:message>
+  <wsdl:message name="POS_Product_QtySoldSoapOut">
+    <wsdl:part name="parameters" element="tns:POS_Product_QtySoldResponse" />
+  </wsdl:message>
+  <wsdl:message name="POS_Employeer_sellingSoapIn">
+    <wsdl:part name="parameters" element="tns:POS_Employeer_selling" />
+  </wsdl:message>
+  <wsdl:message name="POS_Employeer_sellingSoapOut">
+    <wsdl:part name="parameters" element="tns:POS_Employeer_sellingResponse" />
+  </wsdl:message>
+  <wsdl:message name="POS_Get_StatusSoapIn">
+    <wsdl:part name="parameters" element="tns:POS_Get_Status" />
+  </wsdl:message>
+  <wsdl:message name="POS_Get_StatusSoapOut">
+    <wsdl:part name="parameters" element="tns:POS_Get_StatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="POS_Get_Products_Options_RelSoapIn">
+    <wsdl:part name="parameters" element="tns:POS_Get_Products_Options_Rel" />
+  </wsdl:message>
+  <wsdl:message name="POS_Get_Products_Options_RelSoapOut">
+    <wsdl:part name="parameters" element="tns:POS_Get_Products_Options_RelResponse" />
+  </wsdl:message>
+  <wsdl:message name="POS_Start_BillSoapIn">
+    <wsdl:part name="parameters" element="tns:POS_Start_Bill" />
+  </wsdl:message>
+  <wsdl:message name="POS_Start_BillSoapOut">
+    <wsdl:part name="parameters" element="tns:POS_Start_BillResponse" />
+  </wsdl:message>
+  <wsdl:message name="POS_Get_CustomerBillSoapIn">
+    <wsdl:part name="parameters" element="tns:POS_Get_CustomerBill" />
+  </wsdl:message>
+  <wsdl:message name="POS_Get_CustomerBillSoapOut">
+    <wsdl:part name="parameters" element="tns:POS_Get_CustomerBillResponse" />
+  </wsdl:message>
+  <wsdl:message name="POS_Update_BillSoapIn">
+    <wsdl:part name="parameters" element="tns:POS_Update_Bill" />
+  </wsdl:message>
+  <wsdl:message name="POS_Update_BillSoapOut">
+    <wsdl:part name="parameters" element="tns:POS_Update_BillResponse" />
+  </wsdl:message>
+  <wsdl:message name="POS_delete_billSoapIn">
+    <wsdl:part name="parameters" element="tns:POS_delete_bill" />
+  </wsdl:message>
+  <wsdl:message name="POS_delete_billSoapOut">
+    <wsdl:part name="parameters" element="tns:POS_delete_billResponse" />
+  </wsdl:message>
+  <wsdl:message name="POS_Delete_Bill_ProductSoapIn">
+    <wsdl:part name="parameters" element="tns:POS_Delete_Bill_Product" />
+  </wsdl:message>
+  <wsdl:message name="POS_Delete_Bill_ProductSoapOut">
+    <wsdl:part name="parameters" element="tns:POS_Delete_Bill_ProductResponse" />
+  </wsdl:message>
+  <wsdl:message name="POS_Delete_Bill_Product_ShipmentSoapIn">
+    <wsdl:part name="parameters" element="tns:POS_Delete_Bill_Product_Shipment" />
+  </wsdl:message>
+  <wsdl:message name="POS_Delete_Bill_Product_ShipmentSoapOut">
+    <wsdl:part name="parameters" element="tns:POS_Delete_Bill_Product_ShipmentResponse" />
+  </wsdl:message>
+  <wsdl:message name="POS_Order_ProductSoapIn">
+    <wsdl:part name="parameters" element="tns:POS_Order_Product" />
+  </wsdl:message>
+  <wsdl:message name="POS_Order_ProductSoapOut">
+    <wsdl:part name="parameters" element="tns:POS_Order_ProductResponse" />
+  </wsdl:message>
+  <wsdl:message name="POS_Order_OptionsSoapIn">
+    <wsdl:part name="parameters" element="tns:POS_Order_Options" />
+  </wsdl:message>
+  <wsdl:message name="POS_Order_OptionsSoapOut">
+    <wsdl:part name="parameters" element="tns:POS_Order_OptionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="POS_add_EmployeeSoapIn">
+    <wsdl:part name="parameters" element="tns:POS_add_Employee" />
+  </wsdl:message>
+  <wsdl:message name="POS_add_EmployeeSoapOut">
+    <wsdl:part name="parameters" element="tns:POS_add_EmployeeResponse" />
+  </wsdl:message>
+  <wsdl:message name="POS_Add_Bill_ProductSoapIn">
+    <wsdl:part name="parameters" element="tns:POS_Add_Bill_Product" />
+  </wsdl:message>
+  <wsdl:message name="POS_Add_Bill_ProductSoapOut">
+    <wsdl:part name="parameters" element="tns:POS_Add_Bill_ProductResponse" />
+  </wsdl:message>
+  <wsdl:message name="POS_Add_Bill_Product_ShipmentSoapIn">
+    <wsdl:part name="parameters" element="tns:POS_Add_Bill_Product_Shipment" />
+  </wsdl:message>
+  <wsdl:message name="POS_Add_Bill_Product_ShipmentSoapOut">
+    <wsdl:part name="parameters" element="tns:POS_Add_Bill_Product_ShipmentResponse" />
+  </wsdl:message>
+  <wsdl:message name="POS_update_EmployeeSoapIn">
+    <wsdl:part name="parameters" element="tns:POS_update_Employee" />
+  </wsdl:message>
+  <wsdl:message name="POS_update_EmployeeSoapOut">
+    <wsdl:part name="parameters" element="tns:POS_update_EmployeeResponse" />
+  </wsdl:message>
+  <wsdl:message name="POS_Update_Customer_BalanceSoapIn">
+    <wsdl:part name="parameters" element="tns:POS_Update_Customer_Balance" />
+  </wsdl:message>
+  <wsdl:message name="POS_Update_Customer_BalanceSoapOut">
+    <wsdl:part name="parameters" element="tns:POS_Update_Customer_BalanceResponse" />
+  </wsdl:message>
+  <wsdl:message name="POS_add_catagorySoapIn">
+    <wsdl:part name="parameters" element="tns:POS_add_catagory" />
+  </wsdl:message>
+  <wsdl:message name="POS_add_catagorySoapOut">
+    <wsdl:part name="parameters" element="tns:POS_add_catagoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="POS_Add_CustomerSoapIn">
+    <wsdl:part name="parameters" element="tns:POS_Add_Customer" />
+  </wsdl:message>
+  <wsdl:message name="POS_Add_CustomerSoapOut">
+    <wsdl:part name="parameters" element="tns:POS_Add_CustomerResponse" />
+  </wsdl:message>
+  <wsdl:message name="POS_update_catagorySoapIn">
+    <wsdl:part name="parameters" element="tns:POS_update_catagory" />
+  </wsdl:message>
+  <wsdl:message name="POS_update_catagorySoapOut">
+    <wsdl:part name="parameters" element="tns:POS_update_catagoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="POS_Update_CustomerSoapIn">
+    <wsdl:part name="parameters" element="tns:POS_Update_Customer" />
+  </wsdl:message>
+  <wsdl:message name="POS_Update_CustomerSoapOut">
+    <wsdl:part name="parameters" element="tns:POS_Update_CustomerResponse" />
+  </wsdl:message>
+  <wsdl:message name="POS_delete_catagorySoapIn">
+    <wsdl:part name="parameters" element="tns:POS_delete_catagory" />
+  </wsdl:message>
+  <wsdl:message name="POS_delete_catagorySoapOut">
+    <wsdl:part name="parameters" element="tns:POS_delete_catagoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="POS_Delete_CustomerSoapIn">
+    <wsdl:part name="parameters" element="tns:POS_Delete_Customer" />
+  </wsdl:message>
+  <wsdl:message name="POS_Delete_CustomerSoapOut">
+    <wsdl:part name="parameters" element="tns:POS_Delete_CustomerResponse" />
+  </wsdl:message>
+  <wsdl:message name="POS_add_ProductSoapIn">
+    <wsdl:part name="parameters" element="tns:POS_add_Product" />
+  </wsdl:message>
+  <wsdl:message name="POS_add_ProductSoapOut">
+    <wsdl:part name="parameters" element="tns:POS_add_ProductResponse" />
+  </wsdl:message>
+  <wsdl:message name="POS_Update_ProductSoapIn">
+    <wsdl:part name="parameters" element="tns:POS_Update_Product" />
+  </wsdl:message>
+  <wsdl:message name="POS_Update_ProductSoapOut">
+    <wsdl:part name="parameters" element="tns:POS_Update_ProductResponse" />
+  </wsdl:message>
+  <wsdl:message name="POS_Delete_ProductSoapIn">
+    <wsdl:part name="parameters" element="tns:POS_Delete_Product" />
+  </wsdl:message>
+  <wsdl:message name="POS_Delete_ProductSoapOut">
+    <wsdl:part name="parameters" element="tns:POS_Delete_ProductResponse" />
+  </wsdl:message>
+  <wsdl:message name="POS_add_ProductOptionSoapIn">
+    <wsdl:part name="parameters" element="tns:POS_add_ProductOption" />
+  </wsdl:message>
+  <wsdl:message name="POS_add_ProductOptionSoapOut">
+    <wsdl:part name="parameters" element="tns:POS_add_ProductOptionResponse" />
+  </wsdl:message>
+  <wsdl:message name="POS_update_ProductOptionSoapIn">
+    <wsdl:part name="parameters" element="tns:POS_update_ProductOption" />
+  </wsdl:message>
+  <wsdl:message name="POS_update_ProductOptionSoapOut">
+    <wsdl:part name="parameters" element="tns:POS_update_ProductOptionResponse" />
+  </wsdl:message>
+  <wsdl:message name="POS_delete_ProductOptionSoapIn">
+    <wsdl:part name="parameters" element="tns:POS_delete_ProductOption" />
+  </wsdl:message>
+  <wsdl:message name="POS_delete_ProductOptionSoapOut">
+    <wsdl:part name="parameters" element="tns:POS_delete_ProductOptionResponse" />
+  </wsdl:message>
+  <wsdl:message name="POS_add_ProductOptionRelationSoapIn">
+    <wsdl:part name="parameters" element="tns:POS_add_ProductOptionRelation" />
+  </wsdl:message>
+  <wsdl:message name="POS_add_ProductOptionRelationSoapOut">
+    <wsdl:part name="parameters" element="tns:POS_add_ProductOptionRelationResponse" />
+  </wsdl:message>
+  <wsdl:message name="POS_update_ProductOptionRelationSoapIn">
+    <wsdl:part name="parameters" element="tns:POS_update_ProductOptionRelation" />
+  </wsdl:message>
+  <wsdl:message name="POS_update_ProductOptionRelationSoapOut">
+    <wsdl:part name="parameters" element="tns:POS_update_ProductOptionRelationResponse" />
+  </wsdl:message>
+  <wsdl:message name="POS_delete_ProductOptionRelationSoapIn">
+    <wsdl:part name="parameters" element="tns:POS_delete_ProductOptionRelation" />
+  </wsdl:message>
+  <wsdl:message name="POS_delete_ProductOptionRelationSoapOut">
+    <wsdl:part name="parameters" element="tns:POS_delete_ProductOptionRelationResponse" />
+  </wsdl:message>
+  <wsdl:message name="POS_Get_ProductSoapIn">
+    <wsdl:part name="parameters" element="tns:POS_Get_Product" />
+  </wsdl:message>
+  <wsdl:message name="POS_Get_ProductSoapOut">
+    <wsdl:part name="parameters" element="tns:POS_Get_ProductResponse" />
+  </wsdl:message>
+  <wsdl:message name="POS_Get_ProductOptionsSoapIn">
+    <wsdl:part name="parameters" element="tns:POS_Get_ProductOptions" />
+  </wsdl:message>
+  <wsdl:message name="POS_Get_ProductOptionsSoapOut">
+    <wsdl:part name="parameters" element="tns:POS_Get_ProductOptionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="POS_Sale_OrderSoapIn">
+    <wsdl:part name="parameters" element="tns:POS_Sale_Order" />
+  </wsdl:message>
+  <wsdl:message name="POS_Sale_OrderSoapOut">
+    <wsdl:part name="parameters" element="tns:POS_Sale_OrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="POS_Get_CatagoryHttpGetIn" />
+  <wsdl:message name="POS_Get_CatagoryHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="POS_Get_CustomerHttpGetIn" />
+  <wsdl:message name="POS_Get_CustomerHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="POS_Get_EmployeeHttpGetIn" />
+  <wsdl:message name="POS_Get_EmployeeHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="POS_Get_RankHttpGetIn" />
+  <wsdl:message name="POS_Get_RankHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="APP_LoginHttpGetIn">
+    <wsdl:part name="email" type="s:string" />
+    <wsdl:part name="pass" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="APP_LoginHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="POS_Report_SaleHttpGetIn">
+    <wsdl:part name="DF" type="s:string" />
+    <wsdl:part name="DT" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="POS_Report_SaleHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="POS_Get_Customer_LedgerHttpGetIn">
+    <wsdl:part name="Customer_id" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="POS_Get_Customer_LedgerHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="POS_Get_Customer_Ledger_FilterDateHttpGetIn">
+    <wsdl:part name="Customer_id" type="s:string" />
+    <wsdl:part name="DF" type="s:string" />
+    <wsdl:part name="DT" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="POS_Get_Customer_Ledger_FilterDateHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="POS_Get_Bill_ProductHttpGetIn">
+    <wsdl:part name="billid" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="POS_Get_Bill_ProductHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="POS_Get_Bill_Product_ShipmentHttpGetIn">
+    <wsdl:part name="billid" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="POS_Get_Bill_Product_ShipmentHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="POS_Get_BillHttpGetIn" />
+  <wsdl:message name="POS_Get_BillHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="POS_Get_Bill_ShipmentHttpGetIn" />
+  <wsdl:message name="POS_Get_Bill_ShipmentHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="APP_Report_SaleHttpGetIn">
+    <wsdl:part name="DF" type="s:string" />
+    <wsdl:part name="DT" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="APP_Report_SaleHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="POS_Report_Sale_test1HttpGetIn">
+    <wsdl:part name="DF" type="s:string" />
+    <wsdl:part name="DT" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="POS_Report_Sale_test1HttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="POS_Report_Sale_test2HttpGetIn">
+    <wsdl:part name="DF" type="s:string" />
+    <wsdl:part name="DT" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="POS_Report_Sale_test2HttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="POS_Most_soldHttpGetIn">
+    <wsdl:part name="DF" type="s:string" />
+    <wsdl:part name="DT" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="POS_Most_soldHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="POS_Product_QtySoldHttpGetIn">
+    <wsdl:part name="DF" type="s:string" />
+    <wsdl:part name="DT" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="POS_Product_QtySoldHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="POS_Employeer_sellingHttpGetIn">
+    <wsdl:part name="DF" type="s:string" />
+    <wsdl:part name="DT" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="POS_Employeer_sellingHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="POS_Get_StatusHttpGetIn" />
+  <wsdl:message name="POS_Get_StatusHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="POS_Get_Products_Options_RelHttpGetIn" />
+  <wsdl:message name="POS_Get_Products_Options_RelHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="POS_Get_CustomerBillHttpGetIn">
+    <wsdl:part name="customer_id" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="POS_Get_CustomerBillHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="POS_Update_BillHttpGetIn">
+    <wsdl:part name="billid" type="s:string" />
+    <wsdl:part name="total" type="s:string" />
+    <wsdl:part name="Customr_id" type="s:string" />
+    <wsdl:part name="Paid_amount" type="s:string" />
+    <wsdl:part name="Payment_method" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="POS_Update_BillHttpGetOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="POS_delete_billHttpGetIn">
+    <wsdl:part name="billid" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="POS_delete_billHttpGetOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="POS_Delete_Bill_ProductHttpGetIn">
+    <wsdl:part name="billid" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="POS_Delete_Bill_ProductHttpGetOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="POS_Delete_Bill_Product_ShipmentHttpGetIn">
+    <wsdl:part name="billid" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="POS_Delete_Bill_Product_ShipmentHttpGetOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="POS_add_EmployeeHttpGetIn">
+    <wsdl:part name="FName" type="s:string" />
+    <wsdl:part name="LName" type="s:string" />
+    <wsdl:part name="Status_id" type="s:string" />
+    <wsdl:part name="phone_no" type="s:string" />
+    <wsdl:part name="Rank_id" type="s:string" />
+    <wsdl:part name="birthdate" type="s:string" />
+    <wsdl:part name="Email" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="PIN" type="s:string" />
+    <wsdl:part name="Joindate" type="s:string" />
+    <wsdl:part name="Jobdesc" type="s:string" />
+    <wsdl:part name="Absents" type="s:string" />
+    <wsdl:part name="Salary" type="s:string" />
+    <wsdl:part name="Net_amount" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="POS_add_EmployeeHttpGetOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="POS_update_EmployeeHttpGetIn">
+    <wsdl:part name="id" type="s:string" />
+    <wsdl:part name="FName" type="s:string" />
+    <wsdl:part name="LName" type="s:string" />
+    <wsdl:part name="Status_id" type="s:string" />
+    <wsdl:part name="phone_no" type="s:string" />
+    <wsdl:part name="Rank_id" type="s:string" />
+    <wsdl:part name="birthdate" type="s:string" />
+    <wsdl:part name="Email" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="PIN" type="s:string" />
+    <wsdl:part name="Joindate" type="s:string" />
+    <wsdl:part name="Jobdesc" type="s:string" />
+    <wsdl:part name="Absents" type="s:string" />
+    <wsdl:part name="Salary" type="s:string" />
+    <wsdl:part name="Net_amount" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="POS_update_EmployeeHttpGetOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="POS_Update_Customer_BalanceHttpGetIn">
+    <wsdl:part name="Customer_id" type="s:string" />
+    <wsdl:part name="Balance" type="s:string" />
+    <wsdl:part name="flag" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="POS_Update_Customer_BalanceHttpGetOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="POS_add_catagoryHttpGetIn">
+    <wsdl:part name="catagoryName" type="s:string" />
+    <wsdl:part name="catagoryDetail" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="POS_add_catagoryHttpGetOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="POS_Add_CustomerHttpGetIn">
+    <wsdl:part name="Customer_name" type="s:string" />
+    <wsdl:part name="Balance" type="s:string" />
+    <wsdl:part name="Location" type="s:string" />
+    <wsdl:part name="Last_tally" type="s:string" />
+    <wsdl:part name="PhoneNo" type="s:string" />
+    <wsdl:part name="Address" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="POS_Add_CustomerHttpGetOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="POS_update_catagoryHttpGetIn">
+    <wsdl:part name="catagoryid" type="s:string" />
+    <wsdl:part name="catagoryName" type="s:string" />
+    <wsdl:part name="catagoryDetail" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="POS_update_catagoryHttpGetOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="POS_Update_CustomerHttpGetIn">
+    <wsdl:part name="Customer_id" type="s:string" />
+    <wsdl:part name="Customer_name" type="s:string" />
+    <wsdl:part name="Balance" type="s:string" />
+    <wsdl:part name="Location" type="s:string" />
+    <wsdl:part name="Last_tally" type="s:string" />
+    <wsdl:part name="PhoneNo" type="s:string" />
+    <wsdl:part name="Address" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="POS_Update_CustomerHttpGetOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="POS_delete_catagoryHttpGetIn">
+    <wsdl:part name="catagoryid" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="POS_delete_catagoryHttpGetOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="POS_Delete_CustomerHttpGetIn">
+    <wsdl:part name="Customer_id" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="POS_Delete_CustomerHttpGetOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="POS_add_ProductHttpGetIn">
+    <wsdl:part name="productName" type="s:string" />
+    <wsdl:part name="catagoryid" type="s:string" />
+    <wsdl:part name="price" type="s:string" />
+    <wsdl:part name="statusid" type="s:string" />
+    <wsdl:part name="quantity" type="s:string" />
+    <wsdl:part name="productDesc" type="s:string" />
+    <wsdl:part name="buyingPrice" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="POS_add_ProductHttpGetOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="POS_Update_ProductHttpGetIn">
+    <wsdl:part name="productid" type="s:string" />
+    <wsdl:part name="productName" type="s:string" />
+    <wsdl:part name="catagoryid" type="s:string" />
+    <wsdl:part name="price" type="s:string" />
+    <wsdl:part name="statusid" type="s:string" />
+    <wsdl:part name="quantity" type="s:string" />
+    <wsdl:part name="productDesc" type="s:string" />
+    <wsdl:part name="buyingPrice" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="POS_Update_ProductHttpGetOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="POS_Delete_ProductHttpGetIn">
+    <wsdl:part name="productid" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="POS_Delete_ProductHttpGetOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="POS_add_ProductOptionHttpGetIn">
+    <wsdl:part name="optionName" type="s:string" />
+    <wsdl:part name="optionPrice" type="s:string" />
+    <wsdl:part name="optionDetails" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="POS_add_ProductOptionHttpGetOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="POS_update_ProductOptionHttpGetIn">
+    <wsdl:part name="productid" type="s:string" />
+    <wsdl:part name="optionName" type="s:string" />
+    <wsdl:part name="optionPrice" type="s:string" />
+    <wsdl:part name="optionDetails" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="POS_update_ProductOptionHttpGetOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="POS_delete_ProductOptionHttpGetIn">
+    <wsdl:part name="productid" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="POS_delete_ProductOptionHttpGetOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="POS_add_ProductOptionRelationHttpGetIn">
+    <wsdl:part name="productid" type="s:string" />
+    <wsdl:part name="optionid" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="POS_add_ProductOptionRelationHttpGetOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="POS_update_ProductOptionRelationHttpGetIn">
+    <wsdl:part name="productid" type="s:string" />
+    <wsdl:part name="Oldoptionid" type="s:string" />
+    <wsdl:part name="Newoptionid" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="POS_update_ProductOptionRelationHttpGetOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="POS_delete_ProductOptionRelationHttpGetIn">
+    <wsdl:part name="productid" type="s:string" />
+    <wsdl:part name="optionid" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="POS_delete_ProductOptionRelationHttpGetOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="POS_Get_ProductHttpGetIn" />
+  <wsdl:message name="POS_Get_ProductHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="POS_Get_ProductOptionsHttpGetIn" />
+  <wsdl:message name="POS_Get_ProductOptionsHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="POS_Sale_OrderHttpGetIn" />
+  <wsdl:message name="POS_Sale_OrderHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="POS_Get_CatagoryHttpPostIn" />
+  <wsdl:message name="POS_Get_CatagoryHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="POS_Get_CustomerHttpPostIn" />
+  <wsdl:message name="POS_Get_CustomerHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="POS_Get_EmployeeHttpPostIn" />
+  <wsdl:message name="POS_Get_EmployeeHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="POS_Get_RankHttpPostIn" />
+  <wsdl:message name="POS_Get_RankHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="APP_LoginHttpPostIn">
+    <wsdl:part name="email" type="s:string" />
+    <wsdl:part name="pass" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="APP_LoginHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="POS_Report_SaleHttpPostIn">
+    <wsdl:part name="DF" type="s:string" />
+    <wsdl:part name="DT" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="POS_Report_SaleHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="POS_Get_Customer_LedgerHttpPostIn">
+    <wsdl:part name="Customer_id" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="POS_Get_Customer_LedgerHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="POS_Get_Customer_Ledger_FilterDateHttpPostIn">
+    <wsdl:part name="Customer_id" type="s:string" />
+    <wsdl:part name="DF" type="s:string" />
+    <wsdl:part name="DT" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="POS_Get_Customer_Ledger_FilterDateHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="POS_Get_Bill_ProductHttpPostIn">
+    <wsdl:part name="billid" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="POS_Get_Bill_ProductHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="POS_Get_Bill_Product_ShipmentHttpPostIn">
+    <wsdl:part name="billid" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="POS_Get_Bill_Product_ShipmentHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="POS_Get_BillHttpPostIn" />
+  <wsdl:message name="POS_Get_BillHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="POS_Get_Bill_ShipmentHttpPostIn" />
+  <wsdl:message name="POS_Get_Bill_ShipmentHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="APP_Report_SaleHttpPostIn">
+    <wsdl:part name="DF" type="s:string" />
+    <wsdl:part name="DT" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="APP_Report_SaleHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="POS_Report_Sale_test1HttpPostIn">
+    <wsdl:part name="DF" type="s:string" />
+    <wsdl:part name="DT" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="POS_Report_Sale_test1HttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="POS_Report_Sale_test2HttpPostIn">
+    <wsdl:part name="DF" type="s:string" />
+    <wsdl:part name="DT" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="POS_Report_Sale_test2HttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="POS_Most_soldHttpPostIn">
+    <wsdl:part name="DF" type="s:string" />
+    <wsdl:part name="DT" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="POS_Most_soldHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="POS_Product_QtySoldHttpPostIn">
+    <wsdl:part name="DF" type="s:string" />
+    <wsdl:part name="DT" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="POS_Product_QtySoldHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="POS_Employeer_sellingHttpPostIn">
+    <wsdl:part name="DF" type="s:string" />
+    <wsdl:part name="DT" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="POS_Employeer_sellingHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="POS_Get_StatusHttpPostIn" />
+  <wsdl:message name="POS_Get_StatusHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="POS_Get_Products_Options_RelHttpPostIn" />
+  <wsdl:message name="POS_Get_Products_Options_RelHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="POS_Get_CustomerBillHttpPostIn">
+    <wsdl:part name="customer_id" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="POS_Get_CustomerBillHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="POS_Update_BillHttpPostIn">
+    <wsdl:part name="billid" type="s:string" />
+    <wsdl:part name="total" type="s:string" />
+    <wsdl:part name="Customr_id" type="s:string" />
+    <wsdl:part name="Paid_amount" type="s:string" />
+    <wsdl:part name="Payment_method" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="POS_Update_BillHttpPostOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="POS_delete_billHttpPostIn">
+    <wsdl:part name="billid" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="POS_delete_billHttpPostOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="POS_Delete_Bill_ProductHttpPostIn">
+    <wsdl:part name="billid" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="POS_Delete_Bill_ProductHttpPostOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="POS_Delete_Bill_Product_ShipmentHttpPostIn">
+    <wsdl:part name="billid" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="POS_Delete_Bill_Product_ShipmentHttpPostOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="POS_add_EmployeeHttpPostIn">
+    <wsdl:part name="FName" type="s:string" />
+    <wsdl:part name="LName" type="s:string" />
+    <wsdl:part name="Status_id" type="s:string" />
+    <wsdl:part name="phone_no" type="s:string" />
+    <wsdl:part name="Rank_id" type="s:string" />
+    <wsdl:part name="birthdate" type="s:string" />
+    <wsdl:part name="Email" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="PIN" type="s:string" />
+    <wsdl:part name="Joindate" type="s:string" />
+    <wsdl:part name="Jobdesc" type="s:string" />
+    <wsdl:part name="Absents" type="s:string" />
+    <wsdl:part name="Salary" type="s:string" />
+    <wsdl:part name="Net_amount" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="POS_add_EmployeeHttpPostOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="POS_update_EmployeeHttpPostIn">
+    <wsdl:part name="id" type="s:string" />
+    <wsdl:part name="FName" type="s:string" />
+    <wsdl:part name="LName" type="s:string" />
+    <wsdl:part name="Status_id" type="s:string" />
+    <wsdl:part name="phone_no" type="s:string" />
+    <wsdl:part name="Rank_id" type="s:string" />
+    <wsdl:part name="birthdate" type="s:string" />
+    <wsdl:part name="Email" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="PIN" type="s:string" />
+    <wsdl:part name="Joindate" type="s:string" />
+    <wsdl:part name="Jobdesc" type="s:string" />
+    <wsdl:part name="Absents" type="s:string" />
+    <wsdl:part name="Salary" type="s:string" />
+    <wsdl:part name="Net_amount" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="POS_update_EmployeeHttpPostOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="POS_Update_Customer_BalanceHttpPostIn">
+    <wsdl:part name="Customer_id" type="s:string" />
+    <wsdl:part name="Balance" type="s:string" />
+    <wsdl:part name="flag" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="POS_Update_Customer_BalanceHttpPostOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="POS_add_catagoryHttpPostIn">
+    <wsdl:part name="catagoryName" type="s:string" />
+    <wsdl:part name="catagoryDetail" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="POS_add_catagoryHttpPostOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="POS_Add_CustomerHttpPostIn">
+    <wsdl:part name="Customer_name" type="s:string" />
+    <wsdl:part name="Balance" type="s:string" />
+    <wsdl:part name="Location" type="s:string" />
+    <wsdl:part name="Last_tally" type="s:string" />
+    <wsdl:part name="PhoneNo" type="s:string" />
+    <wsdl:part name="Address" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="POS_Add_CustomerHttpPostOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="POS_update_catagoryHttpPostIn">
+    <wsdl:part name="catagoryid" type="s:string" />
+    <wsdl:part name="catagoryName" type="s:string" />
+    <wsdl:part name="catagoryDetail" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="POS_update_catagoryHttpPostOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="POS_Update_CustomerHttpPostIn">
+    <wsdl:part name="Customer_id" type="s:string" />
+    <wsdl:part name="Customer_name" type="s:string" />
+    <wsdl:part name="Balance" type="s:string" />
+    <wsdl:part name="Location" type="s:string" />
+    <wsdl:part name="Last_tally" type="s:string" />
+    <wsdl:part name="PhoneNo" type="s:string" />
+    <wsdl:part name="Address" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="POS_Update_CustomerHttpPostOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="POS_delete_catagoryHttpPostIn">
+    <wsdl:part name="catagoryid" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="POS_delete_catagoryHttpPostOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="POS_Delete_CustomerHttpPostIn">
+    <wsdl:part name="Customer_id" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="POS_Delete_CustomerHttpPostOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="POS_add_ProductHttpPostIn">
+    <wsdl:part name="productName" type="s:string" />
+    <wsdl:part name="catagoryid" type="s:string" />
+    <wsdl:part name="price" type="s:string" />
+    <wsdl:part name="statusid" type="s:string" />
+    <wsdl:part name="quantity" type="s:string" />
+    <wsdl:part name="productDesc" type="s:string" />
+    <wsdl:part name="buyingPrice" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="POS_add_ProductHttpPostOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="POS_Update_ProductHttpPostIn">
+    <wsdl:part name="productid" type="s:string" />
+    <wsdl:part name="productName" type="s:string" />
+    <wsdl:part name="catagoryid" type="s:string" />
+    <wsdl:part name="price" type="s:string" />
+    <wsdl:part name="statusid" type="s:string" />
+    <wsdl:part name="quantity" type="s:string" />
+    <wsdl:part name="productDesc" type="s:string" />
+    <wsdl:part name="buyingPrice" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="POS_Update_ProductHttpPostOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="POS_Delete_ProductHttpPostIn">
+    <wsdl:part name="productid" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="POS_Delete_ProductHttpPostOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="POS_add_ProductOptionHttpPostIn">
+    <wsdl:part name="optionName" type="s:string" />
+    <wsdl:part name="optionPrice" type="s:string" />
+    <wsdl:part name="optionDetails" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="POS_add_ProductOptionHttpPostOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="POS_update_ProductOptionHttpPostIn">
+    <wsdl:part name="productid" type="s:string" />
+    <wsdl:part name="optionName" type="s:string" />
+    <wsdl:part name="optionPrice" type="s:string" />
+    <wsdl:part name="optionDetails" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="POS_update_ProductOptionHttpPostOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="POS_delete_ProductOptionHttpPostIn">
+    <wsdl:part name="productid" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="POS_delete_ProductOptionHttpPostOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="POS_add_ProductOptionRelationHttpPostIn">
+    <wsdl:part name="productid" type="s:string" />
+    <wsdl:part name="optionid" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="POS_add_ProductOptionRelationHttpPostOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="POS_update_ProductOptionRelationHttpPostIn">
+    <wsdl:part name="productid" type="s:string" />
+    <wsdl:part name="Oldoptionid" type="s:string" />
+    <wsdl:part name="Newoptionid" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="POS_update_ProductOptionRelationHttpPostOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="POS_delete_ProductOptionRelationHttpPostIn">
+    <wsdl:part name="productid" type="s:string" />
+    <wsdl:part name="optionid" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="POS_delete_ProductOptionRelationHttpPostOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="POS_Get_ProductHttpPostIn" />
+  <wsdl:message name="POS_Get_ProductHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="POS_Get_ProductOptionsHttpPostIn" />
+  <wsdl:message name="POS_Get_ProductOptionsHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="POS_Sale_OrderHttpPostIn" />
+  <wsdl:message name="POS_Sale_OrderHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:portType name="ServiceSoap">
+    <wsdl:operation name="POS_Get_Catagory">
+      <wsdl:input message="tns:POS_Get_CatagorySoapIn" />
+      <wsdl:output message="tns:POS_Get_CatagorySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="POS_Get_Customer">
+      <wsdl:input message="tns:POS_Get_CustomerSoapIn" />
+      <wsdl:output message="tns:POS_Get_CustomerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="POS_Get_Employee">
+      <wsdl:input message="tns:POS_Get_EmployeeSoapIn" />
+      <wsdl:output message="tns:POS_Get_EmployeeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="POS_Get_Rank">
+      <wsdl:input message="tns:POS_Get_RankSoapIn" />
+      <wsdl:output message="tns:POS_Get_RankSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="POS_Login">
+      <wsdl:input message="tns:POS_LoginSoapIn" />
+      <wsdl:output message="tns:POS_LoginSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="APP_Login">
+      <wsdl:input message="tns:APP_LoginSoapIn" />
+      <wsdl:output message="tns:APP_LoginSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="POS_Report_Sale">
+      <wsdl:input message="tns:POS_Report_SaleSoapIn" />
+      <wsdl:output message="tns:POS_Report_SaleSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="POS_Get_Customer_Ledger">
+      <wsdl:input message="tns:POS_Get_Customer_LedgerSoapIn" />
+      <wsdl:output message="tns:POS_Get_Customer_LedgerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="POS_Get_Customer_Ledger_FilterDate">
+      <wsdl:input message="tns:POS_Get_Customer_Ledger_FilterDateSoapIn" />
+      <wsdl:output message="tns:POS_Get_Customer_Ledger_FilterDateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="POS_Get_Bill_Product">
+      <wsdl:input message="tns:POS_Get_Bill_ProductSoapIn" />
+      <wsdl:output message="tns:POS_Get_Bill_ProductSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="POS_Get_Bill_Product_Shipment">
+      <wsdl:input message="tns:POS_Get_Bill_Product_ShipmentSoapIn" />
+      <wsdl:output message="tns:POS_Get_Bill_Product_ShipmentSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="POS_Get_Bill">
+      <wsdl:input message="tns:POS_Get_BillSoapIn" />
+      <wsdl:output message="tns:POS_Get_BillSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="POS_Get_Bill_Shipment">
+      <wsdl:input message="tns:POS_Get_Bill_ShipmentSoapIn" />
+      <wsdl:output message="tns:POS_Get_Bill_ShipmentSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="APP_Report_Sale">
+      <wsdl:input message="tns:APP_Report_SaleSoapIn" />
+      <wsdl:output message="tns:APP_Report_SaleSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="POS_Report_Sale_test1">
+      <wsdl:input message="tns:POS_Report_Sale_test1SoapIn" />
+      <wsdl:output message="tns:POS_Report_Sale_test1SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="POS_Report_Sale_test2">
+      <wsdl:input message="tns:POS_Report_Sale_test2SoapIn" />
+      <wsdl:output message="tns:POS_Report_Sale_test2SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="POS_Most_sold">
+      <wsdl:input message="tns:POS_Most_soldSoapIn" />
+      <wsdl:output message="tns:POS_Most_soldSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="POS_Product_QtySold">
+      <wsdl:input message="tns:POS_Product_QtySoldSoapIn" />
+      <wsdl:output message="tns:POS_Product_QtySoldSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="POS_Employeer_selling">
+      <wsdl:input message="tns:POS_Employeer_sellingSoapIn" />
+      <wsdl:output message="tns:POS_Employeer_sellingSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="POS_Get_Status">
+      <wsdl:input message="tns:POS_Get_StatusSoapIn" />
+      <wsdl:output message="tns:POS_Get_StatusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="POS_Get_Products_Options_Rel">
+      <wsdl:input message="tns:POS_Get_Products_Options_RelSoapIn" />
+      <wsdl:output message="tns:POS_Get_Products_Options_RelSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="POS_Start_Bill">
+      <wsdl:input message="tns:POS_Start_BillSoapIn" />
+      <wsdl:output message="tns:POS_Start_BillSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="POS_Get_CustomerBill">
+      <wsdl:input message="tns:POS_Get_CustomerBillSoapIn" />
+      <wsdl:output message="tns:POS_Get_CustomerBillSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="POS_Update_Bill">
+      <wsdl:input message="tns:POS_Update_BillSoapIn" />
+      <wsdl:output message="tns:POS_Update_BillSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="POS_delete_bill">
+      <wsdl:input message="tns:POS_delete_billSoapIn" />
+      <wsdl:output message="tns:POS_delete_billSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="POS_Delete_Bill_Product">
+      <wsdl:input message="tns:POS_Delete_Bill_ProductSoapIn" />
+      <wsdl:output message="tns:POS_Delete_Bill_ProductSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="POS_Delete_Bill_Product_Shipment">
+      <wsdl:input message="tns:POS_Delete_Bill_Product_ShipmentSoapIn" />
+      <wsdl:output message="tns:POS_Delete_Bill_Product_ShipmentSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="POS_Order_Product">
+      <wsdl:input message="tns:POS_Order_ProductSoapIn" />
+      <wsdl:output message="tns:POS_Order_ProductSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="POS_Order_Options">
+      <wsdl:input message="tns:POS_Order_OptionsSoapIn" />
+      <wsdl:output message="tns:POS_Order_OptionsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="POS_add_Employee">
+      <wsdl:input message="tns:POS_add_EmployeeSoapIn" />
+      <wsdl:output message="tns:POS_add_EmployeeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="POS_Add_Bill_Product">
+      <wsdl:input message="tns:POS_Add_Bill_ProductSoapIn" />
+      <wsdl:output message="tns:POS_Add_Bill_ProductSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="POS_Add_Bill_Product_Shipment">
+      <wsdl:input message="tns:POS_Add_Bill_Product_ShipmentSoapIn" />
+      <wsdl:output message="tns:POS_Add_Bill_Product_ShipmentSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="POS_update_Employee">
+      <wsdl:input message="tns:POS_update_EmployeeSoapIn" />
+      <wsdl:output message="tns:POS_update_EmployeeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="POS_Update_Customer_Balance">
+      <wsdl:input message="tns:POS_Update_Customer_BalanceSoapIn" />
+      <wsdl:output message="tns:POS_Update_Customer_BalanceSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="POS_add_catagory">
+      <wsdl:input message="tns:POS_add_catagorySoapIn" />
+      <wsdl:output message="tns:POS_add_catagorySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="POS_Add_Customer">
+      <wsdl:input message="tns:POS_Add_CustomerSoapIn" />
+      <wsdl:output message="tns:POS_Add_CustomerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="POS_update_catagory">
+      <wsdl:input message="tns:POS_update_catagorySoapIn" />
+      <wsdl:output message="tns:POS_update_catagorySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="POS_Update_Customer">
+      <wsdl:input message="tns:POS_Update_CustomerSoapIn" />
+      <wsdl:output message="tns:POS_Update_CustomerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="POS_delete_catagory">
+      <wsdl:input message="tns:POS_delete_catagorySoapIn" />
+      <wsdl:output message="tns:POS_delete_catagorySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="POS_Delete_Customer">
+      <wsdl:input message="tns:POS_Delete_CustomerSoapIn" />
+      <wsdl:output message="tns:POS_Delete_CustomerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="POS_add_Product">
+      <wsdl:input message="tns:POS_add_ProductSoapIn" />
+      <wsdl:output message="tns:POS_add_ProductSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="POS_Update_Product">
+      <wsdl:input message="tns:POS_Update_ProductSoapIn" />
+      <wsdl:output message="tns:POS_Update_ProductSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="POS_Delete_Product">
+      <wsdl:input message="tns:POS_Delete_ProductSoapIn" />
+      <wsdl:output message="tns:POS_Delete_ProductSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="POS_add_ProductOption">
+      <wsdl:input message="tns:POS_add_ProductOptionSoapIn" />
+      <wsdl:output message="tns:POS_add_ProductOptionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="POS_update_ProductOption">
+      <wsdl:input message="tns:POS_update_ProductOptionSoapIn" />
+      <wsdl:output message="tns:POS_update_ProductOptionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="POS_delete_ProductOption">
+      <wsdl:input message="tns:POS_delete_ProductOptionSoapIn" />
+      <wsdl:output message="tns:POS_delete_ProductOptionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="POS_add_ProductOptionRelation">
+      <wsdl:input message="tns:POS_add_ProductOptionRelationSoapIn" />
+      <wsdl:output message="tns:POS_add_ProductOptionRelationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="POS_update_ProductOptionRelation">
+      <wsdl:input message="tns:POS_update_ProductOptionRelationSoapIn" />
+      <wsdl:output message="tns:POS_update_ProductOptionRelationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="POS_delete_ProductOptionRelation">
+      <wsdl:input message="tns:POS_delete_ProductOptionRelationSoapIn" />
+      <wsdl:output message="tns:POS_delete_ProductOptionRelationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="POS_Get_Product">
+      <wsdl:input message="tns:POS_Get_ProductSoapIn" />
+      <wsdl:output message="tns:POS_Get_ProductSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="POS_Get_ProductOptions">
+      <wsdl:input message="tns:POS_Get_ProductOptionsSoapIn" />
+      <wsdl:output message="tns:POS_Get_ProductOptionsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="POS_Sale_Order">
+      <wsdl:input message="tns:POS_Sale_OrderSoapIn" />
+      <wsdl:output message="tns:POS_Sale_OrderSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="ServiceHttpGet">
+    <wsdl:operation name="POS_Get_Catagory">
+      <wsdl:input message="tns:POS_Get_CatagoryHttpGetIn" />
+      <wsdl:output message="tns:POS_Get_CatagoryHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="POS_Get_Customer">
+      <wsdl:input message="tns:POS_Get_CustomerHttpGetIn" />
+      <wsdl:output message="tns:POS_Get_CustomerHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="POS_Get_Employee">
+      <wsdl:input message="tns:POS_Get_EmployeeHttpGetIn" />
+      <wsdl:output message="tns:POS_Get_EmployeeHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="POS_Get_Rank">
+      <wsdl:input message="tns:POS_Get_RankHttpGetIn" />
+      <wsdl:output message="tns:POS_Get_RankHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="APP_Login">
+      <wsdl:input message="tns:APP_LoginHttpGetIn" />
+      <wsdl:output message="tns:APP_LoginHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="POS_Report_Sale">
+      <wsdl:input message="tns:POS_Report_SaleHttpGetIn" />
+      <wsdl:output message="tns:POS_Report_SaleHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="POS_Get_Customer_Ledger">
+      <wsdl:input message="tns:POS_Get_Customer_LedgerHttpGetIn" />
+      <wsdl:output message="tns:POS_Get_Customer_LedgerHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="POS_Get_Customer_Ledger_FilterDate">
+      <wsdl:input message="tns:POS_Get_Customer_Ledger_FilterDateHttpGetIn" />
+      <wsdl:output message="tns:POS_Get_Customer_Ledger_FilterDateHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="POS_Get_Bill_Product">
+      <wsdl:input message="tns:POS_Get_Bill_ProductHttpGetIn" />
+      <wsdl:output message="tns:POS_Get_Bill_ProductHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="POS_Get_Bill_Product_Shipment">
+      <wsdl:input message="tns:POS_Get_Bill_Product_ShipmentHttpGetIn" />
+      <wsdl:output message="tns:POS_Get_Bill_Product_ShipmentHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="POS_Get_Bill">
+      <wsdl:input message="tns:POS_Get_BillHttpGetIn" />
+      <wsdl:output message="tns:POS_Get_BillHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="POS_Get_Bill_Shipment">
+      <wsdl:input message="tns:POS_Get_Bill_ShipmentHttpGetIn" />
+      <wsdl:output message="tns:POS_Get_Bill_ShipmentHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="APP_Report_Sale">
+      <wsdl:input message="tns:APP_Report_SaleHttpGetIn" />
+      <wsdl:output message="tns:APP_Report_SaleHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="POS_Report_Sale_test1">
+      <wsdl:input message="tns:POS_Report_Sale_test1HttpGetIn" />
+      <wsdl:output message="tns:POS_Report_Sale_test1HttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="POS_Report_Sale_test2">
+      <wsdl:input message="tns:POS_Report_Sale_test2HttpGetIn" />
+      <wsdl:output message="tns:POS_Report_Sale_test2HttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="POS_Most_sold">
+      <wsdl:input message="tns:POS_Most_soldHttpGetIn" />
+      <wsdl:output message="tns:POS_Most_soldHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="POS_Product_QtySold">
+      <wsdl:input message="tns:POS_Product_QtySoldHttpGetIn" />
+      <wsdl:output message="tns:POS_Product_QtySoldHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="POS_Employeer_selling">
+      <wsdl:input message="tns:POS_Employeer_sellingHttpGetIn" />
+      <wsdl:output message="tns:POS_Employeer_sellingHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="POS_Get_Status">
+      <wsdl:input message="tns:POS_Get_StatusHttpGetIn" />
+      <wsdl:output message="tns:POS_Get_StatusHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="POS_Get_Products_Options_Rel">
+      <wsdl:input message="tns:POS_Get_Products_Options_RelHttpGetIn" />
+      <wsdl:output message="tns:POS_Get_Products_Options_RelHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="POS_Get_CustomerBill">
+      <wsdl:input message="tns:POS_Get_CustomerBillHttpGetIn" />
+      <wsdl:output message="tns:POS_Get_CustomerBillHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="POS_Update_Bill">
+      <wsdl:input message="tns:POS_Update_BillHttpGetIn" />
+      <wsdl:output message="tns:POS_Update_BillHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="POS_delete_bill">
+      <wsdl:input message="tns:POS_delete_billHttpGetIn" />
+      <wsdl:output message="tns:POS_delete_billHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="POS_Delete_Bill_Product">
+      <wsdl:input message="tns:POS_Delete_Bill_ProductHttpGetIn" />
+      <wsdl:output message="tns:POS_Delete_Bill_ProductHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="POS_Delete_Bill_Product_Shipment">
+      <wsdl:input message="tns:POS_Delete_Bill_Product_ShipmentHttpGetIn" />
+      <wsdl:output message="tns:POS_Delete_Bill_Product_ShipmentHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="POS_add_Employee">
+      <wsdl:input message="tns:POS_add_EmployeeHttpGetIn" />
+      <wsdl:output message="tns:POS_add_EmployeeHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="POS_update_Employee">
+      <wsdl:input message="tns:POS_update_EmployeeHttpGetIn" />
+      <wsdl:output message="tns:POS_update_EmployeeHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="POS_Update_Customer_Balance">
+      <wsdl:input message="tns:POS_Update_Customer_BalanceHttpGetIn" />
+      <wsdl:output message="tns:POS_Update_Customer_BalanceHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="POS_add_catagory">
+      <wsdl:input message="tns:POS_add_catagoryHttpGetIn" />
+      <wsdl:output message="tns:POS_add_catagoryHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="POS_Add_Customer">
+      <wsdl:input message="tns:POS_Add_CustomerHttpGetIn" />
+      <wsdl:output message="tns:POS_Add_CustomerHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="POS_update_catagory">
+      <wsdl:input message="tns:POS_update_catagoryHttpGetIn" />
+      <wsdl:output message="tns:POS_update_catagoryHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="POS_Update_Customer">
+      <wsdl:input message="tns:POS_Update_CustomerHttpGetIn" />
+      <wsdl:output message="tns:POS_Update_CustomerHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="POS_delete_catagory">
+      <wsdl:input message="tns:POS_delete_catagoryHttpGetIn" />
+      <wsdl:output message="tns:POS_delete_catagoryHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="POS_Delete_Customer">
+      <wsdl:input message="tns:POS_Delete_CustomerHttpGetIn" />
+      <wsdl:output message="tns:POS_Delete_CustomerHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="POS_add_Product">
+      <wsdl:input message="tns:POS_add_ProductHttpGetIn" />
+      <wsdl:output message="tns:POS_add_ProductHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="POS_Update_Product">
+      <wsdl:input message="tns:POS_Update_ProductHttpGetIn" />
+      <wsdl:output message="tns:POS_Update_ProductHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="POS_Delete_Product">
+      <wsdl:input message="tns:POS_Delete_ProductHttpGetIn" />
+      <wsdl:output message="tns:POS_Delete_ProductHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="POS_add_ProductOption">
+      <wsdl:input message="tns:POS_add_ProductOptionHttpGetIn" />
+      <wsdl:output message="tns:POS_add_ProductOptionHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="POS_update_ProductOption">
+      <wsdl:input message="tns:POS_update_ProductOptionHttpGetIn" />
+      <wsdl:output message="tns:POS_update_ProductOptionHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="POS_delete_ProductOption">
+      <wsdl:input message="tns:POS_delete_ProductOptionHttpGetIn" />
+      <wsdl:output message="tns:POS_delete_ProductOptionHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="POS_add_ProductOptionRelation">
+      <wsdl:input message="tns:POS_add_ProductOptionRelationHttpGetIn" />
+      <wsdl:output message="tns:POS_add_ProductOptionRelationHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="POS_update_ProductOptionRelation">
+      <wsdl:input message="tns:POS_update_ProductOptionRelationHttpGetIn" />
+      <wsdl:output message="tns:POS_update_ProductOptionRelationHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="POS_delete_ProductOptionRelation">
+      <wsdl:input message="tns:POS_delete_ProductOptionRelationHttpGetIn" />
+      <wsdl:output message="tns:POS_delete_ProductOptionRelationHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="POS_Get_Product">
+      <wsdl:input message="tns:POS_Get_ProductHttpGetIn" />
+      <wsdl:output message="tns:POS_Get_ProductHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="POS_Get_ProductOptions">
+      <wsdl:input message="tns:POS_Get_ProductOptionsHttpGetIn" />
+      <wsdl:output message="tns:POS_Get_ProductOptionsHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="POS_Sale_Order">
+      <wsdl:input message="tns:POS_Sale_OrderHttpGetIn" />
+      <wsdl:output message="tns:POS_Sale_OrderHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="ServiceHttpPost">
+    <wsdl:operation name="POS_Get_Catagory">
+      <wsdl:input message="tns:POS_Get_CatagoryHttpPostIn" />
+      <wsdl:output message="tns:POS_Get_CatagoryHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="POS_Get_Customer">
+      <wsdl:input message="tns:POS_Get_CustomerHttpPostIn" />
+      <wsdl:output message="tns:POS_Get_CustomerHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="POS_Get_Employee">
+      <wsdl:input message="tns:POS_Get_EmployeeHttpPostIn" />
+      <wsdl:output message="tns:POS_Get_EmployeeHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="POS_Get_Rank">
+      <wsdl:input message="tns:POS_Get_RankHttpPostIn" />
+      <wsdl:output message="tns:POS_Get_RankHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="APP_Login">
+      <wsdl:input message="tns:APP_LoginHttpPostIn" />
+      <wsdl:output message="tns:APP_LoginHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="POS_Report_Sale">
+      <wsdl:input message="tns:POS_Report_SaleHttpPostIn" />
+      <wsdl:output message="tns:POS_Report_SaleHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="POS_Get_Customer_Ledger">
+      <wsdl:input message="tns:POS_Get_Customer_LedgerHttpPostIn" />
+      <wsdl:output message="tns:POS_Get_Customer_LedgerHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="POS_Get_Customer_Ledger_FilterDate">
+      <wsdl:input message="tns:POS_Get_Customer_Ledger_FilterDateHttpPostIn" />
+      <wsdl:output message="tns:POS_Get_Customer_Ledger_FilterDateHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="POS_Get_Bill_Product">
+      <wsdl:input message="tns:POS_Get_Bill_ProductHttpPostIn" />
+      <wsdl:output message="tns:POS_Get_Bill_ProductHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="POS_Get_Bill_Product_Shipment">
+      <wsdl:input message="tns:POS_Get_Bill_Product_ShipmentHttpPostIn" />
+      <wsdl:output message="tns:POS_Get_Bill_Product_ShipmentHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="POS_Get_Bill">
+      <wsdl:input message="tns:POS_Get_BillHttpPostIn" />
+      <wsdl:output message="tns:POS_Get_BillHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="POS_Get_Bill_Shipment">
+      <wsdl:input message="tns:POS_Get_Bill_ShipmentHttpPostIn" />
+      <wsdl:output message="tns:POS_Get_Bill_ShipmentHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="APP_Report_Sale">
+      <wsdl:input message="tns:APP_Report_SaleHttpPostIn" />
+      <wsdl:output message="tns:APP_Report_SaleHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="POS_Report_Sale_test1">
+      <wsdl:input message="tns:POS_Report_Sale_test1HttpPostIn" />
+      <wsdl:output message="tns:POS_Report_Sale_test1HttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="POS_Report_Sale_test2">
+      <wsdl:input message="tns:POS_Report_Sale_test2HttpPostIn" />
+      <wsdl:output message="tns:POS_Report_Sale_test2HttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="POS_Most_sold">
+      <wsdl:input message="tns:POS_Most_soldHttpPostIn" />
+      <wsdl:output message="tns:POS_Most_soldHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="POS_Product_QtySold">
+      <wsdl:input message="tns:POS_Product_QtySoldHttpPostIn" />
+      <wsdl:output message="tns:POS_Product_QtySoldHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="POS_Employeer_selling">
+      <wsdl:input message="tns:POS_Employeer_sellingHttpPostIn" />
+      <wsdl:output message="tns:POS_Employeer_sellingHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="POS_Get_Status">
+      <wsdl:input message="tns:POS_Get_StatusHttpPostIn" />
+      <wsdl:output message="tns:POS_Get_StatusHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="POS_Get_Products_Options_Rel">
+      <wsdl:input message="tns:POS_Get_Products_Options_RelHttpPostIn" />
+      <wsdl:output message="tns:POS_Get_Products_Options_RelHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="POS_Get_CustomerBill">
+      <wsdl:input message="tns:POS_Get_CustomerBillHttpPostIn" />
+      <wsdl:output message="tns:POS_Get_CustomerBillHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="POS_Update_Bill">
+      <wsdl:input message="tns:POS_Update_BillHttpPostIn" />
+      <wsdl:output message="tns:POS_Update_BillHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="POS_delete_bill">
+      <wsdl:input message="tns:POS_delete_billHttpPostIn" />
+      <wsdl:output message="tns:POS_delete_billHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="POS_Delete_Bill_Product">
+      <wsdl:input message="tns:POS_Delete_Bill_ProductHttpPostIn" />
+      <wsdl:output message="tns:POS_Delete_Bill_ProductHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="POS_Delete_Bill_Product_Shipment">
+      <wsdl:input message="tns:POS_Delete_Bill_Product_ShipmentHttpPostIn" />
+      <wsdl:output message="tns:POS_Delete_Bill_Product_ShipmentHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="POS_add_Employee">
+      <wsdl:input message="tns:POS_add_EmployeeHttpPostIn" />
+      <wsdl:output message="tns:POS_add_EmployeeHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="POS_update_Employee">
+      <wsdl:input message="tns:POS_update_EmployeeHttpPostIn" />
+      <wsdl:output message="tns:POS_update_EmployeeHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="POS_Update_Customer_Balance">
+      <wsdl:input message="tns:POS_Update_Customer_BalanceHttpPostIn" />
+      <wsdl:output message="tns:POS_Update_Customer_BalanceHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="POS_add_catagory">
+      <wsdl:input message="tns:POS_add_catagoryHttpPostIn" />
+      <wsdl:output message="tns:POS_add_catagoryHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="POS_Add_Customer">
+      <wsdl:input message="tns:POS_Add_CustomerHttpPostIn" />
+      <wsdl:output message="tns:POS_Add_CustomerHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="POS_update_catagory">
+      <wsdl:input message="tns:POS_update_catagoryHttpPostIn" />
+      <wsdl:output message="tns:POS_update_catagoryHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="POS_Update_Customer">
+      <wsdl:input message="tns:POS_Update_CustomerHttpPostIn" />
+      <wsdl:output message="tns:POS_Update_CustomerHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="POS_delete_catagory">
+      <wsdl:input message="tns:POS_delete_catagoryHttpPostIn" />
+      <wsdl:output message="tns:POS_delete_catagoryHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="POS_Delete_Customer">
+      <wsdl:input message="tns:POS_Delete_CustomerHttpPostIn" />
+      <wsdl:output message="tns:POS_Delete_CustomerHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="POS_add_Product">
+      <wsdl:input message="tns:POS_add_ProductHttpPostIn" />
+      <wsdl:output message="tns:POS_add_ProductHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="POS_Update_Product">
+      <wsdl:input message="tns:POS_Update_ProductHttpPostIn" />
+      <wsdl:output message="tns:POS_Update_ProductHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="POS_Delete_Product">
+      <wsdl:input message="tns:POS_Delete_ProductHttpPostIn" />
+      <wsdl:output message="tns:POS_Delete_ProductHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="POS_add_ProductOption">
+      <wsdl:input message="tns:POS_add_ProductOptionHttpPostIn" />
+      <wsdl:output message="tns:POS_add_ProductOptionHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="POS_update_ProductOption">
+      <wsdl:input message="tns:POS_update_ProductOptionHttpPostIn" />
+      <wsdl:output message="tns:POS_update_ProductOptionHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="POS_delete_ProductOption">
+      <wsdl:input message="tns:POS_delete_ProductOptionHttpPostIn" />
+      <wsdl:output message="tns:POS_delete_ProductOptionHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="POS_add_ProductOptionRelation">
+      <wsdl:input message="tns:POS_add_ProductOptionRelationHttpPostIn" />
+      <wsdl:output message="tns:POS_add_ProductOptionRelationHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="POS_update_ProductOptionRelation">
+      <wsdl:input message="tns:POS_update_ProductOptionRelationHttpPostIn" />
+      <wsdl:output message="tns:POS_update_ProductOptionRelationHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="POS_delete_ProductOptionRelation">
+      <wsdl:input message="tns:POS_delete_ProductOptionRelationHttpPostIn" />
+      <wsdl:output message="tns:POS_delete_ProductOptionRelationHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="POS_Get_Product">
+      <wsdl:input message="tns:POS_Get_ProductHttpPostIn" />
+      <wsdl:output message="tns:POS_Get_ProductHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="POS_Get_ProductOptions">
+      <wsdl:input message="tns:POS_Get_ProductOptionsHttpPostIn" />
+      <wsdl:output message="tns:POS_Get_ProductOptionsHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="POS_Sale_Order">
+      <wsdl:input message="tns:POS_Sale_OrderHttpPostIn" />
+      <wsdl:output message="tns:POS_Sale_OrderHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ServiceSoap" type="tns:ServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="POS_Get_Catagory">
+      <soap:operation soapAction="http://tempuri.org/POS_Get_Catagory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_Get_Customer">
+      <soap:operation soapAction="http://tempuri.org/POS_Get_Customer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_Get_Employee">
+      <soap:operation soapAction="http://tempuri.org/POS_Get_Employee" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_Get_Rank">
+      <soap:operation soapAction="http://tempuri.org/POS_Get_Rank" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_Login">
+      <soap:operation soapAction="http://tempuri.org/POS_Login" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="APP_Login">
+      <soap:operation soapAction="http://tempuri.org/APP_Login" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_Report_Sale">
+      <soap:operation soapAction="http://tempuri.org/POS_Report_Sale" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_Get_Customer_Ledger">
+      <soap:operation soapAction="http://tempuri.org/POS_Get_Customer_Ledger" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_Get_Customer_Ledger_FilterDate">
+      <soap:operation soapAction="http://tempuri.org/POS_Get_Customer_Ledger_FilterDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_Get_Bill_Product">
+      <soap:operation soapAction="http://tempuri.org/POS_Get_Bill_Product" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_Get_Bill_Product_Shipment">
+      <soap:operation soapAction="http://tempuri.org/POS_Get_Bill_Product_Shipment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_Get_Bill">
+      <soap:operation soapAction="http://tempuri.org/POS_Get_Bill" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_Get_Bill_Shipment">
+      <soap:operation soapAction="http://tempuri.org/POS_Get_Bill_Shipment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="APP_Report_Sale">
+      <soap:operation soapAction="http://tempuri.org/APP_Report_Sale" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_Report_Sale_test1">
+      <soap:operation soapAction="http://tempuri.org/POS_Report_Sale_test1" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_Report_Sale_test2">
+      <soap:operation soapAction="http://tempuri.org/POS_Report_Sale_test2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_Most_sold">
+      <soap:operation soapAction="http://tempuri.org/POS_Most_sold" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_Product_QtySold">
+      <soap:operation soapAction="http://tempuri.org/POS_Product_QtySold" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_Employeer_selling">
+      <soap:operation soapAction="http://tempuri.org/POS_Employeer_selling" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_Get_Status">
+      <soap:operation soapAction="http://tempuri.org/POS_Get_Status" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_Get_Products_Options_Rel">
+      <soap:operation soapAction="http://tempuri.org/POS_Get_Products_Options_Rel" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_Start_Bill">
+      <soap:operation soapAction="http://tempuri.org/POS_Start_Bill" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_Get_CustomerBill">
+      <soap:operation soapAction="http://tempuri.org/POS_Get_CustomerBill" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_Update_Bill">
+      <soap:operation soapAction="http://tempuri.org/POS_Update_Bill" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_delete_bill">
+      <soap:operation soapAction="http://tempuri.org/POS_delete_bill" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_Delete_Bill_Product">
+      <soap:operation soapAction="http://tempuri.org/POS_Delete_Bill_Product" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_Delete_Bill_Product_Shipment">
+      <soap:operation soapAction="http://tempuri.org/POS_Delete_Bill_Product_Shipment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_Order_Product">
+      <soap:operation soapAction="http://tempuri.org/POS_Order_Product" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_Order_Options">
+      <soap:operation soapAction="http://tempuri.org/POS_Order_Options" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_add_Employee">
+      <soap:operation soapAction="http://tempuri.org/POS_add_Employee" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_Add_Bill_Product">
+      <soap:operation soapAction="http://tempuri.org/POS_Add_Bill_Product" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_Add_Bill_Product_Shipment">
+      <soap:operation soapAction="http://tempuri.org/POS_Add_Bill_Product_Shipment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_update_Employee">
+      <soap:operation soapAction="http://tempuri.org/POS_update_Employee" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_Update_Customer_Balance">
+      <soap:operation soapAction="http://tempuri.org/POS_Update_Customer_Balance" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_add_catagory">
+      <soap:operation soapAction="http://tempuri.org/POS_add_catagory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_Add_Customer">
+      <soap:operation soapAction="http://tempuri.org/POS_Add_Customer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_update_catagory">
+      <soap:operation soapAction="http://tempuri.org/POS_update_catagory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_Update_Customer">
+      <soap:operation soapAction="http://tempuri.org/POS_Update_Customer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_delete_catagory">
+      <soap:operation soapAction="http://tempuri.org/POS_delete_catagory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_Delete_Customer">
+      <soap:operation soapAction="http://tempuri.org/POS_Delete_Customer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_add_Product">
+      <soap:operation soapAction="http://tempuri.org/POS_add_Product" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_Update_Product">
+      <soap:operation soapAction="http://tempuri.org/POS_Update_Product" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_Delete_Product">
+      <soap:operation soapAction="http://tempuri.org/POS_Delete_Product" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_add_ProductOption">
+      <soap:operation soapAction="http://tempuri.org/POS_add_ProductOption" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_update_ProductOption">
+      <soap:operation soapAction="http://tempuri.org/POS_update_ProductOption" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_delete_ProductOption">
+      <soap:operation soapAction="http://tempuri.org/POS_delete_ProductOption" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_add_ProductOptionRelation">
+      <soap:operation soapAction="http://tempuri.org/POS_add_ProductOptionRelation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_update_ProductOptionRelation">
+      <soap:operation soapAction="http://tempuri.org/POS_update_ProductOptionRelation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_delete_ProductOptionRelation">
+      <soap:operation soapAction="http://tempuri.org/POS_delete_ProductOptionRelation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_Get_Product">
+      <soap:operation soapAction="http://tempuri.org/POS_Get_Product" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_Get_ProductOptions">
+      <soap:operation soapAction="http://tempuri.org/POS_Get_ProductOptions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_Sale_Order">
+      <soap:operation soapAction="http://tempuri.org/POS_Sale_Order" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ServiceSoap12" type="tns:ServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="POS_Get_Catagory">
+      <soap12:operation soapAction="http://tempuri.org/POS_Get_Catagory" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_Get_Customer">
+      <soap12:operation soapAction="http://tempuri.org/POS_Get_Customer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_Get_Employee">
+      <soap12:operation soapAction="http://tempuri.org/POS_Get_Employee" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_Get_Rank">
+      <soap12:operation soapAction="http://tempuri.org/POS_Get_Rank" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_Login">
+      <soap12:operation soapAction="http://tempuri.org/POS_Login" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="APP_Login">
+      <soap12:operation soapAction="http://tempuri.org/APP_Login" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_Report_Sale">
+      <soap12:operation soapAction="http://tempuri.org/POS_Report_Sale" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_Get_Customer_Ledger">
+      <soap12:operation soapAction="http://tempuri.org/POS_Get_Customer_Ledger" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_Get_Customer_Ledger_FilterDate">
+      <soap12:operation soapAction="http://tempuri.org/POS_Get_Customer_Ledger_FilterDate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_Get_Bill_Product">
+      <soap12:operation soapAction="http://tempuri.org/POS_Get_Bill_Product" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_Get_Bill_Product_Shipment">
+      <soap12:operation soapAction="http://tempuri.org/POS_Get_Bill_Product_Shipment" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_Get_Bill">
+      <soap12:operation soapAction="http://tempuri.org/POS_Get_Bill" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_Get_Bill_Shipment">
+      <soap12:operation soapAction="http://tempuri.org/POS_Get_Bill_Shipment" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="APP_Report_Sale">
+      <soap12:operation soapAction="http://tempuri.org/APP_Report_Sale" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_Report_Sale_test1">
+      <soap12:operation soapAction="http://tempuri.org/POS_Report_Sale_test1" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_Report_Sale_test2">
+      <soap12:operation soapAction="http://tempuri.org/POS_Report_Sale_test2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_Most_sold">
+      <soap12:operation soapAction="http://tempuri.org/POS_Most_sold" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_Product_QtySold">
+      <soap12:operation soapAction="http://tempuri.org/POS_Product_QtySold" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_Employeer_selling">
+      <soap12:operation soapAction="http://tempuri.org/POS_Employeer_selling" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_Get_Status">
+      <soap12:operation soapAction="http://tempuri.org/POS_Get_Status" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_Get_Products_Options_Rel">
+      <soap12:operation soapAction="http://tempuri.org/POS_Get_Products_Options_Rel" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_Start_Bill">
+      <soap12:operation soapAction="http://tempuri.org/POS_Start_Bill" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_Get_CustomerBill">
+      <soap12:operation soapAction="http://tempuri.org/POS_Get_CustomerBill" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_Update_Bill">
+      <soap12:operation soapAction="http://tempuri.org/POS_Update_Bill" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_delete_bill">
+      <soap12:operation soapAction="http://tempuri.org/POS_delete_bill" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_Delete_Bill_Product">
+      <soap12:operation soapAction="http://tempuri.org/POS_Delete_Bill_Product" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_Delete_Bill_Product_Shipment">
+      <soap12:operation soapAction="http://tempuri.org/POS_Delete_Bill_Product_Shipment" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_Order_Product">
+      <soap12:operation soapAction="http://tempuri.org/POS_Order_Product" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_Order_Options">
+      <soap12:operation soapAction="http://tempuri.org/POS_Order_Options" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_add_Employee">
+      <soap12:operation soapAction="http://tempuri.org/POS_add_Employee" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_Add_Bill_Product">
+      <soap12:operation soapAction="http://tempuri.org/POS_Add_Bill_Product" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_Add_Bill_Product_Shipment">
+      <soap12:operation soapAction="http://tempuri.org/POS_Add_Bill_Product_Shipment" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_update_Employee">
+      <soap12:operation soapAction="http://tempuri.org/POS_update_Employee" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_Update_Customer_Balance">
+      <soap12:operation soapAction="http://tempuri.org/POS_Update_Customer_Balance" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_add_catagory">
+      <soap12:operation soapAction="http://tempuri.org/POS_add_catagory" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_Add_Customer">
+      <soap12:operation soapAction="http://tempuri.org/POS_Add_Customer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_update_catagory">
+      <soap12:operation soapAction="http://tempuri.org/POS_update_catagory" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_Update_Customer">
+      <soap12:operation soapAction="http://tempuri.org/POS_Update_Customer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_delete_catagory">
+      <soap12:operation soapAction="http://tempuri.org/POS_delete_catagory" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_Delete_Customer">
+      <soap12:operation soapAction="http://tempuri.org/POS_Delete_Customer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_add_Product">
+      <soap12:operation soapAction="http://tempuri.org/POS_add_Product" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_Update_Product">
+      <soap12:operation soapAction="http://tempuri.org/POS_Update_Product" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_Delete_Product">
+      <soap12:operation soapAction="http://tempuri.org/POS_Delete_Product" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_add_ProductOption">
+      <soap12:operation soapAction="http://tempuri.org/POS_add_ProductOption" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_update_ProductOption">
+      <soap12:operation soapAction="http://tempuri.org/POS_update_ProductOption" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_delete_ProductOption">
+      <soap12:operation soapAction="http://tempuri.org/POS_delete_ProductOption" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_add_ProductOptionRelation">
+      <soap12:operation soapAction="http://tempuri.org/POS_add_ProductOptionRelation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_update_ProductOptionRelation">
+      <soap12:operation soapAction="http://tempuri.org/POS_update_ProductOptionRelation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_delete_ProductOptionRelation">
+      <soap12:operation soapAction="http://tempuri.org/POS_delete_ProductOptionRelation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_Get_Product">
+      <soap12:operation soapAction="http://tempuri.org/POS_Get_Product" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_Get_ProductOptions">
+      <soap12:operation soapAction="http://tempuri.org/POS_Get_ProductOptions" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_Sale_Order">
+      <soap12:operation soapAction="http://tempuri.org/POS_Sale_Order" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ServiceHttpGet" type="tns:ServiceHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="POS_Get_Catagory">
+      <http:operation location="/POS_Get_Catagory" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_Get_Customer">
+      <http:operation location="/POS_Get_Customer" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_Get_Employee">
+      <http:operation location="/POS_Get_Employee" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_Get_Rank">
+      <http:operation location="/POS_Get_Rank" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="APP_Login">
+      <http:operation location="/APP_Login" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_Report_Sale">
+      <http:operation location="/POS_Report_Sale" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_Get_Customer_Ledger">
+      <http:operation location="/POS_Get_Customer_Ledger" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_Get_Customer_Ledger_FilterDate">
+      <http:operation location="/POS_Get_Customer_Ledger_FilterDate" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_Get_Bill_Product">
+      <http:operation location="/POS_Get_Bill_Product" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_Get_Bill_Product_Shipment">
+      <http:operation location="/POS_Get_Bill_Product_Shipment" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_Get_Bill">
+      <http:operation location="/POS_Get_Bill" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_Get_Bill_Shipment">
+      <http:operation location="/POS_Get_Bill_Shipment" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="APP_Report_Sale">
+      <http:operation location="/APP_Report_Sale" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_Report_Sale_test1">
+      <http:operation location="/POS_Report_Sale_test1" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_Report_Sale_test2">
+      <http:operation location="/POS_Report_Sale_test2" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_Most_sold">
+      <http:operation location="/POS_Most_sold" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_Product_QtySold">
+      <http:operation location="/POS_Product_QtySold" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_Employeer_selling">
+      <http:operation location="/POS_Employeer_selling" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_Get_Status">
+      <http:operation location="/POS_Get_Status" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_Get_Products_Options_Rel">
+      <http:operation location="/POS_Get_Products_Options_Rel" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_Get_CustomerBill">
+      <http:operation location="/POS_Get_CustomerBill" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_Update_Bill">
+      <http:operation location="/POS_Update_Bill" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_delete_bill">
+      <http:operation location="/POS_delete_bill" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_Delete_Bill_Product">
+      <http:operation location="/POS_Delete_Bill_Product" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_Delete_Bill_Product_Shipment">
+      <http:operation location="/POS_Delete_Bill_Product_Shipment" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_add_Employee">
+      <http:operation location="/POS_add_Employee" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_update_Employee">
+      <http:operation location="/POS_update_Employee" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_Update_Customer_Balance">
+      <http:operation location="/POS_Update_Customer_Balance" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_add_catagory">
+      <http:operation location="/POS_add_catagory" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_Add_Customer">
+      <http:operation location="/POS_Add_Customer" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_update_catagory">
+      <http:operation location="/POS_update_catagory" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_Update_Customer">
+      <http:operation location="/POS_Update_Customer" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_delete_catagory">
+      <http:operation location="/POS_delete_catagory" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_Delete_Customer">
+      <http:operation location="/POS_Delete_Customer" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_add_Product">
+      <http:operation location="/POS_add_Product" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_Update_Product">
+      <http:operation location="/POS_Update_Product" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_Delete_Product">
+      <http:operation location="/POS_Delete_Product" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_add_ProductOption">
+      <http:operation location="/POS_add_ProductOption" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_update_ProductOption">
+      <http:operation location="/POS_update_ProductOption" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_delete_ProductOption">
+      <http:operation location="/POS_delete_ProductOption" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_add_ProductOptionRelation">
+      <http:operation location="/POS_add_ProductOptionRelation" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_update_ProductOptionRelation">
+      <http:operation location="/POS_update_ProductOptionRelation" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_delete_ProductOptionRelation">
+      <http:operation location="/POS_delete_ProductOptionRelation" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_Get_Product">
+      <http:operation location="/POS_Get_Product" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_Get_ProductOptions">
+      <http:operation location="/POS_Get_ProductOptions" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_Sale_Order">
+      <http:operation location="/POS_Sale_Order" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ServiceHttpPost" type="tns:ServiceHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="POS_Get_Catagory">
+      <http:operation location="/POS_Get_Catagory" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_Get_Customer">
+      <http:operation location="/POS_Get_Customer" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_Get_Employee">
+      <http:operation location="/POS_Get_Employee" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_Get_Rank">
+      <http:operation location="/POS_Get_Rank" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="APP_Login">
+      <http:operation location="/APP_Login" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_Report_Sale">
+      <http:operation location="/POS_Report_Sale" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_Get_Customer_Ledger">
+      <http:operation location="/POS_Get_Customer_Ledger" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_Get_Customer_Ledger_FilterDate">
+      <http:operation location="/POS_Get_Customer_Ledger_FilterDate" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_Get_Bill_Product">
+      <http:operation location="/POS_Get_Bill_Product" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_Get_Bill_Product_Shipment">
+      <http:operation location="/POS_Get_Bill_Product_Shipment" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_Get_Bill">
+      <http:operation location="/POS_Get_Bill" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_Get_Bill_Shipment">
+      <http:operation location="/POS_Get_Bill_Shipment" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="APP_Report_Sale">
+      <http:operation location="/APP_Report_Sale" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_Report_Sale_test1">
+      <http:operation location="/POS_Report_Sale_test1" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_Report_Sale_test2">
+      <http:operation location="/POS_Report_Sale_test2" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_Most_sold">
+      <http:operation location="/POS_Most_sold" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_Product_QtySold">
+      <http:operation location="/POS_Product_QtySold" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_Employeer_selling">
+      <http:operation location="/POS_Employeer_selling" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_Get_Status">
+      <http:operation location="/POS_Get_Status" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_Get_Products_Options_Rel">
+      <http:operation location="/POS_Get_Products_Options_Rel" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_Get_CustomerBill">
+      <http:operation location="/POS_Get_CustomerBill" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_Update_Bill">
+      <http:operation location="/POS_Update_Bill" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_delete_bill">
+      <http:operation location="/POS_delete_bill" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_Delete_Bill_Product">
+      <http:operation location="/POS_Delete_Bill_Product" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_Delete_Bill_Product_Shipment">
+      <http:operation location="/POS_Delete_Bill_Product_Shipment" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_add_Employee">
+      <http:operation location="/POS_add_Employee" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_update_Employee">
+      <http:operation location="/POS_update_Employee" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_Update_Customer_Balance">
+      <http:operation location="/POS_Update_Customer_Balance" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_add_catagory">
+      <http:operation location="/POS_add_catagory" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_Add_Customer">
+      <http:operation location="/POS_Add_Customer" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_update_catagory">
+      <http:operation location="/POS_update_catagory" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_Update_Customer">
+      <http:operation location="/POS_Update_Customer" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_delete_catagory">
+      <http:operation location="/POS_delete_catagory" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_Delete_Customer">
+      <http:operation location="/POS_Delete_Customer" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_add_Product">
+      <http:operation location="/POS_add_Product" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_Update_Product">
+      <http:operation location="/POS_Update_Product" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_Delete_Product">
+      <http:operation location="/POS_Delete_Product" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_add_ProductOption">
+      <http:operation location="/POS_add_ProductOption" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_update_ProductOption">
+      <http:operation location="/POS_update_ProductOption" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_delete_ProductOption">
+      <http:operation location="/POS_delete_ProductOption" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_add_ProductOptionRelation">
+      <http:operation location="/POS_add_ProductOptionRelation" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_update_ProductOptionRelation">
+      <http:operation location="/POS_update_ProductOptionRelation" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_delete_ProductOptionRelation">
+      <http:operation location="/POS_delete_ProductOptionRelation" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_Get_Product">
+      <http:operation location="/POS_Get_Product" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_Get_ProductOptions">
+      <http:operation location="/POS_Get_ProductOptions" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="POS_Sale_Order">
+      <http:operation location="/POS_Sale_Order" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Service">
+    <wsdl:port name="ServiceSoap" binding="tns:ServiceSoap">
+      <soap:address location="http://arham:6543/Service.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ServiceSoap12" binding="tns:ServiceSoap12">
+      <soap12:address location="http://arham:6543/Service.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ServiceHttpGet" binding="tns:ServiceHttpGet">
+      <http:address location="http://arham:6543/Service.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ServiceHttpPost" binding="tns:ServiceHttpPost">
+      <http:address location="http://arham:6543/Service.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

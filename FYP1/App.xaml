@@ -1,0 +1,173 @@
+﻿<Application x:Class="FYP1.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:FYP1"
+             xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <!-- MahApps.Metro resource dictionaries. Make sure that all file names are Case Sensitive! -->
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Fonts.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Colors.xaml" />
+                <ResourceDictionary Source="/Resources/Icons.xaml" />
+                <ResourceDictionary Source="Dictionary1.xaml"/>
+                <!-- Accent and AppTheme setting -->
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/Blue.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/BaseLight.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <TransformGroup x:Key="transformGroup">
+                <ScaleTransform ScaleX="1" ScaleY="1" CenterX="0.5" CenterY="0.5" />
+            </TransformGroup>
+
+            <!--<Style TargetType="DataGrid">
+                <Setter Property="GridLinesVisibility" Value="All" />
+                <Setter Property="KeyboardNavigation.TabNavigation" Value="Contained" />
+                <Setter Property="IsSynchronizedWithCurrentItem" Value="True" />
+            </Style>-->
+            <Style x:Key="CustomMetroToggleSwitch"
+                       BasedOn="{StaticResource MahApps.Metro.Styles.ToggleSwitch}"
+                       TargetType="{x:Type Controls:ToggleSwitch}">
+                <Setter Property="OffLabel" Value="" />
+                <Setter Property="OnLabel" Value="" />
+                <Setter Property="SwitchForeground" Value="YellowGreen" />
+            </Style>
+            <Style x:Key="Win8MetroPasswordBox"
+           TargetType="{x:Type PasswordBox}"
+           BasedOn="{StaticResource MetroButtonRevealedPasswordBox}">
+                <Setter Property="AllowDrop" Value="true" />
+                <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+                <Setter Property="FontSize" Value="15" />
+            </Style>
+            <Style x:Key="LargeTileStyle" TargetType="Controls:Tile">
+                <Setter Property="Height" Value="125" />
+                <Setter Property="TitleFontSize" Value="12" />
+                <Setter Property="Width" Value="300" />
+                <Setter Property="RenderTransform" Value="{StaticResource transformGroup}"/>
+                <Style.Triggers>
+                    <EventTrigger RoutedEvent="UIElement.PreviewTouchDown">
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)">
+                                    <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="0.9"/>
+                                    <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="1"/>
+                                </DoubleAnimationUsingKeyFrames>
+                                <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)">
+                                    <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="0.9"/>
+                                    <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="1"/>
+                                </DoubleAnimationUsingKeyFrames>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                </Style.Triggers>
+            </Style>
+            <Style x:Key="SmallTileStyle1" TargetType="Controls:Tile">
+                <Setter Property="Height" Value="150" />
+                <Setter Property="TitleFontSize" Value="10" />
+                <Setter Property="Width" Value="175" />
+                <Setter Property="RenderTransform" Value="{StaticResource transformGroup}"/>
+                <Style.Triggers>
+                    <EventTrigger RoutedEvent="UIElement.TouchDown">
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)">
+                                    <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="0.9"/>
+                                    <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="1"/>
+                                </DoubleAnimationUsingKeyFrames>
+                                <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)">
+                                    <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="0.9"/>
+                                    <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="1"/>
+                                </DoubleAnimationUsingKeyFrames>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                </Style.Triggers>
+            </Style>
+                <SolidColorBrush x:Key="salecolor" Color="#FF35F3A5">
+                    
+                </SolidColorBrush>
+            <Style x:Key="SmallTileStyle" TargetType="Controls:Tile">
+                <Setter Property="Height" Value="125" />
+                <Setter Property="TitleFontSize" Value="10" />
+                <Setter Property="Width" Value="147" />
+                <Setter Property="RenderTransform" Value="{StaticResource transformGroup}"/>
+                <Style.Triggers>
+                    <EventTrigger RoutedEvent="UIElement.TouchDown">
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)">
+                                    <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="0.9"/>
+                                    <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="1"/>
+                                </DoubleAnimationUsingKeyFrames>
+                                <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)">
+                                    <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="0.9"/>
+                                    <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="1"/>
+                                </DoubleAnimationUsingKeyFrames>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                </Style.Triggers>
+            </Style>
+            <Style x:Key="listi1" TargetType="{x:Type ListBoxItem}">
+                <Setter Property="Background" Value="Transparent"/>
+                <Setter Property="HorizontalContentAlignment" Value="{Binding HorizontalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"/>
+                <Setter Property="VerticalContentAlignment" Value="{Binding VerticalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"/>
+                <Setter Property="Padding" Value="2,0,0,0"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type ListBoxItem}">
+                            <Border x:Name="Bd" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}" SnapsToDevicePixels="true">
+                                <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                            </Border>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsSelected" Value="true">
+                                    <Setter Property="Background" TargetName="Bd" Value="#00444444"/>
+                                </Trigger>
+                                <MultiTrigger>
+                                    <MultiTrigger.Conditions>
+                                        <Condition Property="IsSelected" Value="true"/>
+                                        <Condition Property="Selector.IsSelectionActive" Value="false"/>
+                                    </MultiTrigger.Conditions>
+                                    <Setter Property="Background" TargetName="Bd" Value="#00444444"/>
+                                </MultiTrigger>
+                                <Trigger Property="IsEnabled" Value="false">
+                                    <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+                <Style.Triggers>
+                    <Trigger Property="IsMouseOver" Value="True">
+                        <Setter Property="Background" Value="Transparent"/>
+                    </Trigger>
+                </Style.Triggers>
+             
+            </Style>
+            <Style x:Key="listi" TargetType="ListBoxItem">
+                <Setter Property="HorizontalContentAlignment" Value="Stretch"></Setter>
+                <Style.Resources>
+                    <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}"
+                             Color="Transparent"/>
+                </Style.Resources>
+                <Style.Triggers>
+                    <Trigger Property="IsMouseOver" Value="True">
+                        <Setter Property="Background" Value="#00ff00ff"/>                       
+                    </Trigger>
+                    <Trigger Property="IsSelected" Value="True">
+                        <Setter Property="Background" Value="#00ff00ff"/>
+                    </Trigger>
+                   
+                    <!--<Trigger Property="IsKeyboardFocusWithin" Value="true">
+                        <Setter Property="IsSelected" Value="true" />
+                    </Trigger>-->
+                </Style.Triggers>
+                
+            </Style>
+            <Thickness x:Key="ControlMargin">0 5 0 0</Thickness>
+
+        </ResourceDictionary>
+    </Application.Resources>
+
+</Application>

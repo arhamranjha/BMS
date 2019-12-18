@@ -1,0 +1,348 @@
+﻿<Page x:Class="FYP1.RetailProduct"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:FYP1"
+      mc:Ignorable="d" 
+      xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
+      d:DesignHeight="600" d:DesignWidth="900"
+      xmlns:local1="clr-namespace:FYP1.Models"
+      xmlns:scm="clr-namespace:System.ComponentModel;assembly=WindowsBase"
+      Title="RetailProduct" Loaded="Page_Loaded">
+    <Page.Resources>
+        <Thickness x:Key="ControlMargin">0 10 0 10</Thickness>
+
+        <local1:ProductsModel x:Key="pro" />
+        <CollectionViewSource  x:Key="cvs" Source="{Binding Path=ProductsCollection,Source={StaticResource pro}}">
+            <CollectionViewSource.SortDescriptions>
+                <scm:SortDescription PropertyName="ProductName"/>
+            </CollectionViewSource.SortDescriptions>
+        </CollectionViewSource>
+    </Page.Resources>
+    <Grid Name="gridSource" DataContext="{Binding Source={StaticResource cvs}}" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="18*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="7*"/>
+            <ColumnDefinition Width="30*"/>
+            <ColumnDefinition Width="60*"/>
+        </Grid.ColumnDefinitions>
+        <Button  Width="60"
+                        Height="60" x:Name="backButton"
+                        Style="{DynamicResource MetroCircleButtonStyle}" 
+Foreground="{DynamicResource  AccentColorBrush}"
+                 TouchUp="backButton_TouchUp">
+            <Rectangle Width="30"
+                               Height="30"
+                               Fill="{Binding Path=Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}">
+                <Rectangle.OpacityMask>
+                    <VisualBrush Stretch="Fill" Visual="{DynamicResource appbar_navigate_previous}" />
+                </Rectangle.OpacityMask>
+            </Rectangle>
+        </Button>
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Grid.ColumnSpan="1" Grid.Column="3" HorizontalAlignment="Right" >
+            <Controls:ToggleSwitch  Margin="0,0,20,0" VerticalAlignment="Center"
+                                   Header="Show active" HorizontalAlignment="Left"
+                                   IsChecked="False" IsCheckedChanged="ToggleSwitch_IsCheckedChanged"
+                                   Style="{DynamicResource CustomMetroToggleSwitch}" FontWeight="Thin" >
+                <Controls:ToggleSwitch.HeaderTemplate>
+                    <DataTemplate>
+                        <TextBlock Foreground="{StaticResource AccentColorBrush2}" Text="Show Actives" TextAlignment="Center" FontWeight="Light"/>
+                    </DataTemplate>
+                </Controls:ToggleSwitch.HeaderTemplate>
+            </Controls:ToggleSwitch>
+
+            <TextBox x:Name="search" FontSize="24" FontWeight="Light" Margin="10" 
+                 BorderThickness="0,0,0,3" BorderBrush="{StaticResource AccentColorBrush}"
+                         Controls:TextBoxHelper.ClearTextButton="True" Width="300"  VerticalAlignment="Center"
+                         Controls:TextBoxHelper.UseFloatingWatermark="True" HorizontalAlignment="Right"
+                         Controls:TextBoxHelper.Watermark="Search Product..." 
+                  KeyUp="SearchBox_KeyUp"  >
+                <TextBox.Style>
+                    <Style BasedOn="{StaticResource SearchMetroTextBox}" TargetType="{x:Type TextBox}">
+                        <Style.Triggers>
+                            <Trigger Property="Controls:TextBoxHelper.HasText" Value="True">
+                                <Setter Property="Controls:TextBoxHelper.ButtonContent" Value="r" />
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBox.Style>
+            </TextBox>
+
+
+        </StackPanel>
+
+        <RichTextBox x:Name="richTextBox" Grid.Column="1" DockPanel.Dock="Left" FontSize="36"
+                     Foreground="{DynamicResource AccentColorBrush}"
+                       HorizontalAlignment="Right" Height="auto"  VerticalAlignment="Center"
+                      BorderThickness="0" Width="auto"
+                     Controls:TextBoxHelper.IsSpellCheckContextMenuEnabled="True"
+                             IsDocumentEnabled="True"  IsReadOnly="True">
+            <FlowDocument>
+                <Paragraph>
+                    <Run  Text="Products..." FontStyle="Normal" FontWeight="Light"/>
+                </Paragraph>
+            </FlowDocument>
+        </RichTextBox>
+        <GroupBox Grid.Column="1" Grid.Row="1"  Controls:ControlsHelper.ContentCharacterCasing="Normal" Controls:ControlsHelper.HeaderFontSize="16" Margin="10,10,10,70" BorderThickness="2" Header="List of Products" FontSize="24">
+            <ListBox Name="productList" SelectedIndex="0" BorderThickness="0" ItemContainerStyle="{StaticResource listi}" ScrollViewer.PanningMode="Both" ScrollViewer.VerticalScrollBarVisibility="Hidden"  ItemsSource="{Binding ElementName=gridSource,Path=DataContext}" SelectionChanged="productList_SelectionChanged">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Border BorderBrush="{StaticResource AccentColorBrush2}" BorderThickness="0,0,0,2">
+                            <TextBlock Margin="15"  Text="{Binding ProductName}" Foreground="{StaticResource AccentColorBrush}" HorizontalAlignment="Left" FontSize="24" VerticalAlignment="Center" ScrollViewer.VerticalScrollBarVisibility="Disabled" FontWeight="Light" TextWrapping="Wrap"/>
+                        </Border>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </GroupBox>
+        <Expander IsExpanded="True" Controls:ControlsHelper.ContentCharacterCasing="Normal" Controls:ControlsHelper.HeaderFontSize="16" Margin="10,10,10,70" BorderThickness="2" BorderBrush="{StaticResource AccentColorBrush}" Grid.Column="2" Grid.Row="1"
+                  Header="Selected Product">
+            <ScrollViewer  ScrollViewer.VerticalScrollBarVisibility="Visible" ScrollViewer.PanningMode="Both" >
+                <Grid  x:Name="employeeform"   >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto" SharedSizeGroup="true" />
+                        <RowDefinition Height="auto" SharedSizeGroup="true"/>
+                        <RowDefinition Height="auto" SharedSizeGroup="true"/>
+                        <RowDefinition Height="auto" SharedSizeGroup="true"/>
+                        <RowDefinition Height="auto" SharedSizeGroup="true"/>
+                        <RowDefinition Height="auto" SharedSizeGroup="true"/>
+                        <RowDefinition Height="auto" SharedSizeGroup="true"/>
+                        <RowDefinition Height="auto" SharedSizeGroup="true"/>
+                        <RowDefinition Height="auto" SharedSizeGroup="true"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*" SharedSizeGroup="true"/>
+                        <ColumnDefinition Width="2*" />
+
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Row="0" Text="Product id:" Foreground="{StaticResource AccentColorBrush}" HorizontalAlignment="Left" FontSize="24" VerticalAlignment="Center" ScrollViewer.VerticalScrollBarVisibility="Disabled" FontWeight="SemiBold" TextWrapping="Wrap"/>
+                    <TextBlock Grid.Row="1" Text="Product Name:" Foreground="{StaticResource AccentColorBrush}" HorizontalAlignment="Left" FontSize="24" VerticalAlignment="Center" ScrollViewer.VerticalScrollBarVisibility="Disabled" FontWeight="SemiBold" TextWrapping="Wrap"/>
+                    <TextBlock Grid.Row="7" Text="Catagory:" Foreground="{StaticResource AccentColorBrush}" HorizontalAlignment="Left" FontSize="24" VerticalAlignment="Center" ScrollViewer.VerticalScrollBarVisibility="Disabled" FontWeight="SemiBold" TextWrapping="Wrap"/>
+                    <TextBlock Grid.Row="3" Text="Product Selling Price:" Foreground="{StaticResource AccentColorBrush}" HorizontalAlignment="Left" FontSize="24" VerticalAlignment="Center" ScrollViewer.VerticalScrollBarVisibility="Disabled" FontWeight="SemiBold" TextWrapping="Wrap"/>
+                    <TextBlock Grid.Row="4" Text="Product Buying Price:" Foreground="{StaticResource AccentColorBrush}" HorizontalAlignment="Left" FontSize="24" VerticalAlignment="Center" ScrollViewer.VerticalScrollBarVisibility="Disabled" FontWeight="SemiBold" TextWrapping="Wrap"/>
+                    <TextBlock Grid.Row="5" Text="Product Status:" Foreground="{StaticResource AccentColorBrush}" HorizontalAlignment="Left" FontSize="24" VerticalAlignment="Center" ScrollViewer.VerticalScrollBarVisibility="Disabled" FontWeight="SemiBold" TextWrapping="Wrap"/>
+                    <TextBlock Grid.Row="6" Text="Product Quantity" Foreground="{StaticResource AccentColorBrush}" HorizontalAlignment="Left" FontSize="24" VerticalAlignment="Center" ScrollViewer.VerticalScrollBarVisibility="Disabled" FontWeight="SemiBold" TextWrapping="Wrap"/>
+                    <TextBlock Grid.Row="2" Text="Product Description:" Foreground="{StaticResource AccentColorBrush}" HorizontalAlignment="Left" FontSize="24" VerticalAlignment="Center" ScrollViewer.VerticalScrollBarVisibility="Disabled" FontWeight="SemiBold" TextWrapping="Wrap"/>
+                    <TextBlock Grid.Row="8" Text="Product Profit:" Foreground="{StaticResource AccentColorBrush}" HorizontalAlignment="Left" FontSize="24" VerticalAlignment="Center" ScrollViewer.VerticalScrollBarVisibility="Disabled" FontWeight="SemiBold" TextWrapping="Wrap"/>
+                    <TextBox Margin="{StaticResource ControlMargin}" 
+                         FontSize="24" IsEnabled="False"
+                         Text="{Binding ProductProfit,ValidatesOnNotifyDataErrors=True}"
+                         Grid.Row="8" Grid.Column="1"/>
+                    <TextBox Margin="{StaticResource ControlMargin}" 
+                         FontSize="24" IsEnabled="False"
+                         Text="{Binding Productid,ValidatesOnNotifyDataErrors=True}"
+                         Grid.Row="0" Grid.Column="1"/>
+                    
+                    <TextBox Margin="{StaticResource ControlMargin}" 
+                         Text="{Binding ProductDesc,ValidatesOnExceptions=True,UpdateSourceTrigger=PropertyChanged,NotifyOnValidationError=True}" Validation.Error="TextBox_Error"
+                         Controls:TextBoxHelper.ClearTextButton="True" 
+                         Controls:TextBoxHelper.UseFloatingWatermark="True" FontSize="24"
+                         Controls:TextBoxHelper.Watermark="Product Description"
+                         ToolTip="Default alignment" 
+                         Grid.Row="2" Grid.Column="1" Controls:TextBoxHelper.IsWaitingForData="True"/>
+                    
+                    <TextBox Margin="{StaticResource ControlMargin}"  Validation.Error="TextBox_Error"
+                         Text="{Binding ProductName,ValidatesOnExceptions=True,UpdateSourceTrigger=PropertyChanged,NotifyOnValidationError=True}"
+                         Controls:TextBoxHelper.ClearTextButton="True" 
+                         Controls:TextBoxHelper.UseFloatingWatermark="True" FontSize="24"
+                         Controls:TextBoxHelper.Watermark="Product Name"
+                         ToolTip="Default alignment" 
+                         Grid.Row="1" Grid.Column="1" Controls:TextBoxHelper.IsWaitingForData="True"/>
+
+
+                    <ComboBox x:Name="status" Grid.Row="5" Grid.Column="1"   FontSize="24" 
+                          Margin="{StaticResource ControlMargin}"
+                          Controls:TextBoxHelper.UseFloatingWatermark="True"
+                          Controls:TextBoxHelper.Watermark="Avalablity Status"
+                          DisplayMemberPath="StatusDescription" 
+                          SelectedValuePath="Statusid" SelectedValue="{Binding ProductStatusid,UpdateSourceTrigger=PropertyChanged}"
+                          MaxDropDownHeight="125"
+                          Style="{DynamicResource VirtualisedMetroComboBox}"
+                          Text="{Binding Path=ProductStatusDesc,NotifyOnSourceUpdated=True}" />
+                    <ComboBox x:Name="catagory" Grid.Row="7" Grid.Column="1"   FontSize="24" 
+                          Margin="{StaticResource ControlMargin}" Validation.Error="TextBox_Error"
+                          Controls:TextBoxHelper.Watermark="Catagory"
+                          DisplayMemberPath="CatagoryName"  Controls:TextBoxHelper.IsWaitingForData="True"
+                          SelectedValuePath="Catagoryid" SelectedValue="{Binding ProductCatagoryid,ValidatesOnExceptions=True,UpdateSourceTrigger=PropertyChanged,NotifyOnValidationError=True}"
+                          MaxDropDownHeight="125"
+                          Style="{DynamicResource VirtualisedMetroComboBox}"
+                          Text="{Binding Path=ProductCatagoryDesc,NotifyOnSourceUpdated=True}" />
+                    <Controls:NumericUpDown TextAlignment="Left"  Margin="{StaticResource ControlMargin}" FontSize="24" Grid.Column="1" Grid.Row="3"
+                                        Controls:TextBoxHelper.Watermark="Selling price"  Controls:TextBoxHelper.IsWaitingForData="True" Minimum="0" Interval="20"
+                                        HasDecimals="{Binding ElementName=HasDecimalsCheckBox, Path=IsChecked, Mode=TwoWay}"
+                                        IsReadOnly="{Binding ElementName=ReadOnlyCheck, Path=IsChecked, Mode=TwoWay}"
+                                        Speedup="True" Value="{Binding ProductPrice,UpdateSourceTrigger=PropertyChanged,NotifyOnValidationError=True}" Validation.Error="TextBox_Error"
+                                            />
+                    <Controls:NumericUpDown TextAlignment="Left"  Margin="{StaticResource ControlMargin}" FontSize="24" Grid.Column="1" Grid.Row="4"
+                                        Controls:TextBoxHelper.Watermark="Buying price"  Controls:TextBoxHelper.IsWaitingForData="True"
+                                        HasDecimals="True"
+                                        Speedup="True" Value="{Binding ProductBuyingPrice,UpdateSourceTrigger=PropertyChanged,NotifyOnValidationError=True}" Validation.Error="TextBox_Error"
+                                            Minimum="0" Interval="20" />
+                    <Controls:NumericUpDown TextAlignment="Left"  Margin="{StaticResource ControlMargin}" FontSize="24" Grid.Column="1" Grid.Row="6"
+                                        Controls:TextBoxHelper.Watermark="Product Quantity"  Controls:TextBoxHelper.IsWaitingForData="True" Minimum="0" Interval="20"
+                                        IsReadOnly="{Binding ElementName=ReadOnlyCheck, Path=IsChecked, Mode=TwoWay}"
+                                        Speedup="True" Value="{Binding ProductQuantity,UpdateSourceTrigger=PropertyChanged}" />
+                </Grid>
+            </ScrollViewer>
+
+        </Expander>
+        <Controls:Flyout Height="65" Grid.Column="0" Grid.Row="1"  Grid.ColumnSpan="3"
+                             CloseButtonVisibility="Collapsed" IsOpen="True"
+                             IsPinned="True" Theme="Accent" Header="Bottom" Position="Bottom"                            
+                             TitleVisibility="Collapsed" >
+            <Grid VerticalAlignment="Bottom" Margin="0,0,10,0" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Grid.Column="0">
+                    <Button  Width="60" Background="White" HorizontalAlignment="left"
+                        Height="60" x:Name="add" Foreground="{DynamicResource  AccentColorBrush}"
+                        Style="{DynamicResource MetroCircleButtonStyle}" TouchDown="add_TouchDown">
+                        <Rectangle Width="30"
+                               Height="30"
+                               Fill="{Binding Path=Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}">
+                            <Rectangle.OpacityMask>
+                                <VisualBrush Stretch="Fill" Visual="{DynamicResource appbar_add}" />
+                            </Rectangle.OpacityMask>
+                        </Rectangle>
+                    </Button>
+                   
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Grid.Column="1">                   
+                    <Button  Width="60" Background="White" HorizontalAlignment="Right"
+                        Height="60" x:Name="update" Foreground="{StaticResource AccentColorBrush}"
+                        Style="{DynamicResource MetroCircleButtonStyle}" TouchDown="update_TouchDown">
+                        <Rectangle Width="30"
+                               Height="30"
+                               Fill="{Binding Path=Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}">
+                            <Rectangle.OpacityMask>
+                                <VisualBrush Stretch="Fill" Visual="{DynamicResource appbar_save}" />
+                            </Rectangle.OpacityMask>
+                        </Rectangle>
+                    </Button>
+                    <Button  Width="60" Background="White" HorizontalAlignment="Right"
+                        Height="60" x:Name="del" Foreground="{StaticResource AccentColorBrush}"
+                        Style="{DynamicResource MetroCircleButtonStyle}" TouchDown="del_TouchDown">
+                        <Rectangle Width="20"
+                               Height="30"
+                               Fill="{Binding Path=Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}">
+                            <Rectangle.OpacityMask>
+                                <VisualBrush Stretch="Fill" Visual="{DynamicResource appbar_delete}" />
+                            </Rectangle.OpacityMask>
+                        </Rectangle>
+                    </Button>
+                </StackPanel>              
+            </Grid>
+        </Controls:Flyout>
+
+        <Controls:FlyoutsControl x:Name="fly" Grid.Row="0" Grid.RowSpan="2"  BorderBrush="{StaticResource AccentColorBrush}" BorderThickness="3"
+                                 Grid.Column="1" Grid.ColumnSpan="2">
+            <Controls:Flyout Width="auto"  
+                             IsOpen="{Binding Open,Mode=TwoWay}" Theme="Adapt"
+                             Position="Right"                                
+                             ScrollViewer.PanningMode="Both" BorderBrush="{StaticResource AccentColorBrush}" BorderThickness="3"
+                             AreAnimationsEnabled="True" 
+                             Header="Add new product">
+                <ScrollViewer x:Name="flyout" ScrollViewer.PanningMode="Both" ScrollViewer.VerticalScrollBarVisibility="Hidden">
+                    <StackPanel Margin="20" Width="300">
+                        <TextBox Margin="{StaticResource ControlMargin}" BorderBrush="{StaticResource AccentColorBrush}" BorderThickness="0,0,0,3"
+                         Text="{Binding ProductName,UpdateSourceTrigger=PropertyChanged,NotifyOnValidationError=True}" Validation.Error="TextBox_Error_1"
+                         Controls:TextBoxHelper.ClearTextButton="True" 
+                         Controls:TextBoxHelper.UseFloatingWatermark="True" FontSize="24"
+                         Controls:TextBoxHelper.Watermark="Product Name"
+                         ToolTip="Default alignment" 
+                         Grid.Row="1" Grid.Column="1" Controls:TextBoxHelper.IsWaitingForData="True"/>
+                        <TextBox Margin="{StaticResource ControlMargin}" BorderBrush="{StaticResource AccentColorBrush}" BorderThickness="0,0,0,3"
+                         Text="{Binding ProductDesc,UpdateSourceTrigger=PropertyChanged,NotifyOnValidationError=True}" Validation.Error="TextBox_Error_1"
+                         Controls:TextBoxHelper.ClearTextButton="True" 
+                         Controls:TextBoxHelper.UseFloatingWatermark="True" FontSize="24"
+                         Controls:TextBoxHelper.Watermark="Product Description"
+                         ToolTip="Default alignment" 
+                         Grid.Row="7" Grid.Column="1" Controls:TextBoxHelper.IsWaitingForData="True"/>
+                        <ComboBox x:Name="status1" Grid.Row="5" Grid.Column="1"   FontSize="24" SelectedIndex="0"
+                          Margin="{StaticResource ControlMargin}" BorderBrush="{StaticResource AccentColorBrush}" BorderThickness="0,0,0,3"
+                          Controls:TextBoxHelper.UseFloatingWatermark="True"
+                          Controls:TextBoxHelper.Watermark="Working Status"
+                          DisplayMemberPath="StatusDescription"  
+                          SelectedValuePath="Statusid" SelectedValue="{Binding ProductStatusid,UpdateSourceTrigger=PropertyChanged,NotifyOnValidationError=True}" Validation.Error="TextBox_Error_1"
+                          MaxDropDownHeight="125" 
+                          Style="{DynamicResource VirtualisedMetroComboBox}"
+                          Text="{Binding Path=ProductStatusDesc,NotifyOnSourceUpdated=True}" >
+                            <Controls:ControlsHelper.MouseOverBorderBrush>
+                                <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.MenuHighlightColorKey}}"/>
+                            </Controls:ControlsHelper.MouseOverBorderBrush>
+                            <Controls:ControlsHelper.FocusBorderBrush>
+                                <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.MenuHighlightColorKey}}"/>
+                            </Controls:ControlsHelper.FocusBorderBrush>
+                        </ComboBox>
+                        <ComboBox x:Name="catagory1" Grid.Row="2" Grid.Column="1"   FontSize="24" 
+                          Margin="{StaticResource ControlMargin}" BorderBrush="{StaticResource AccentColorBrush}" BorderThickness="0,0,0,3"
+                          Controls:TextBoxHelper.Watermark="Catagory" Controls:TextBoxHelper.UseFloatingWatermark="True" 
+                          DisplayMemberPath="CatagoryName"  Controls:TextBoxHelper.IsWaitingForData="True"
+                          SelectedValuePath="Catagoryid" SelectedValue="{Binding ProductCatagoryid,UpdateSourceTrigger=PropertyChanged,NotifyOnValidationError=True}" Validation.Error="TextBox_Error_1"
+                          MaxDropDownHeight="125"
+                          Style="{DynamicResource VirtualisedMetroComboBox}"
+                          Text="{Binding Path=ProductCatagoryDesc,NotifyOnSourceUpdated=True}" >
+                            <Controls:ControlsHelper.FocusBorderBrush>
+                                <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.MenuHighlightColorKey}}"/>
+                            </Controls:ControlsHelper.FocusBorderBrush>
+                            <Controls:ControlsHelper.MouseOverBorderBrush>
+                                <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.MenuHighlightColorKey}}"/>
+                            </Controls:ControlsHelper.MouseOverBorderBrush>
+                        </ComboBox>
+                        <Controls:NumericUpDown TextAlignment="Left"  Margin="{StaticResource ControlMargin}" BorderBrush="{StaticResource AccentColorBrush}" BorderThickness="0,0,0,3" FontSize="24" Grid.Column="1" Grid.Row="3"
+                                        Controls:TextBoxHelper.Watermark="Selling price"  Controls:TextBoxHelper.IsWaitingForData="True"
+                                        HasDecimals="True"    Minimum="0" Interval="20" 
+                                                Speedup="True" Value="{Binding ProductPrice,UpdateSourceTrigger=PropertyChanged,NotifyOnValidationError=True}" Validation.Error="TextBox_Error_1"
+                                                />
+                        <Controls:NumericUpDown TextAlignment="Left"  Margin="{StaticResource ControlMargin}" FontSize="24" Grid.Column="1" Grid.Row="4"
+                                        Controls:TextBoxHelper.Watermark="Buying price"  Controls:TextBoxHelper.IsWaitingForData="True" Minimum="0" Interval="20"
+                                        HasDecimals="True" BorderBrush="{StaticResource AccentColorBrush}" BorderThickness="0,0,0,3"
+                                        Speedup="True" Value="{Binding ProductBuyingPrice,UpdateSourceTrigger=PropertyChanged,NotifyOnValidationError=True}" Validation.Error="TextBox_Error_1"
+                                                />
+                        <Controls:NumericUpDown TextAlignment="Left"  Margin="{StaticResource ControlMargin}" FontSize="24" Grid.Column="1" Grid.Row="6"
+                                        Controls:TextBoxHelper.Watermark="Product Quantity"  Controls:TextBoxHelper.IsWaitingForData="True"
+                                        BorderBrush="{StaticResource AccentColorBrush}" BorderThickness="0,0,0,3" HasDecimals="False" Minimum="0" Interval="20"
+                                        Speedup="True" Value="{Binding ProductQuantity,UpdateSourceTrigger=PropertyChanged,NotifyOnValidationError=True}" Validation.Error="TextBox_Error_1" 
+                                                /> 
+                        
+
+                        <StackPanel Orientation="Horizontal" Margin="{StaticResource ControlMargin}" HorizontalAlignment="Right">
+                            <Button Margin="10,0,10,0"  Width="60" Background="White" HorizontalAlignment="left"
+                        Height="60" x:Name="addnew" Foreground="{StaticResource AccentColorBrush}"
+                        Style="{DynamicResource MetroCircleButtonStyle}" TouchDown="addnew_TouchDown" >
+                                <Rectangle Width="30"
+                               Height="30"
+                               Fill="{Binding Path=Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}">
+                                    <Rectangle.OpacityMask>
+                                        <VisualBrush Stretch="Fill" Visual="{DynamicResource appbar_save}" />
+                                    </Rectangle.OpacityMask>
+                                </Rectangle>
+                            </Button>
+                            <Button Margin="10,0,10,0"  Width="60" Background="White" HorizontalAlignment="left"
+                        Height="60" x:Name="cancelnew" Foreground="{StaticResource AccentColorBrush}"
+                        Style="{DynamicResource MetroCircleButtonStyle}" TouchDown="cancelnew_TouchDown" >
+                                <Rectangle Width="20"
+                               Height="30"
+                               Fill="{Binding Path=Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}">
+                                    <Rectangle.OpacityMask>
+                                        <VisualBrush Stretch="Fill" Visual="{DynamicResource appbar_delete}" />
+                                    </Rectangle.OpacityMask>
+                                </Rectangle>
+                            </Button>
+
+                        </StackPanel>
+
+                    </StackPanel>
+
+                </ScrollViewer>
+            </Controls:Flyout>
+        </Controls:FlyoutsControl>
+
+
+    </Grid>
+</Page>

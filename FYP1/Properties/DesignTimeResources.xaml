@@ -1,0 +1,8 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:FYP1.Properties">
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/FYP1;component/Resources/Icons.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+
+</ResourceDictionary>
